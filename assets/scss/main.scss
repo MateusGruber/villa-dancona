@@ -1,0 +1,449 @@
+//Variables
+$primary: rgb(40, 52, 123);
+$darkblue: #090c0e;
+$grey: #76777A;
+$gold: #B79E4B;
+
+//Breakpoints
+$extraSmall: 500px;
+$small: 768px;
+$medium: 769px;
+$large: 1200px;
+$extra: 1440px;
+
+//Queries
+
+//between 501 and 768
+@mixin extraSmall {
+    @media screen and (max-width: $extraSmall) {
+        @content;
+    }
+}
+
+@mixin small {
+    @media screen and (max-width: $small) {
+        @content;
+    }
+}
+
+//between 769 and 1120
+@mixin medium {
+    @media (min-width: $medium) {
+        @content;
+    }
+}
+
+//between 1120 and 1440
+@mixin large {
+    @media (min-width: $large) {
+        @content;
+    }
+}
+
+//1440 foward
+@mixin extralarge {
+    @media (min-width: $extra) {
+        @content;
+    }
+}
+
+//Animation
+@keyframes wave {
+    0% {
+        -webkit-transform: rotateZ(0deg) translate3d(0, 10%, 0) rotateZ(0deg);
+        -moz-transform: rotateZ(0deg) translate3d(0, 10%, 0) rotateZ(0deg);
+        transform: rotateZ(0deg) translate3d(0, 10%, 0) rotateZ(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotateZ(360deg) translate3d(0, 10%, 0) rotateZ(-360deg);
+        -moz-transform: rotateZ(360deg) translate3d(0, 10%, 0) rotateZ(-360deg);
+        transform: rotateZ(360deg) translate3d(0, 10%, 0) rotateZ(-360deg);
+    }
+}
+
+@keyframes slide {
+    from {
+        background-position: 0 bottom;
+    }
+
+    to {
+        background-position: 1186px bottom;
+    }
+}
+
+
+:root {
+    font-size: 16px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        font-family: 'BommerSans', Arial, Helvetica;
+        font-weight: bold;
+        letter-spacing: -3.52px;
+    }
+
+    p {
+        color: white;
+        font-family: 'BommerSans', Arial, Helvetica, sans-serif;
+        font-weight: lighter;
+        font-size: 0.8125em;
+        max-width: 17.4125rem;
+        line-height: 1.4rem;
+        overflow: hidden;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 15px;
+    }
+}
+
+main {
+    overflow: hidden;
+
+    menu {
+        // mix-blend-mode: difference;
+        position: absolute;
+        top: 50%;
+        left: 3%;
+        z-index: 10;
+
+        ul {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            li {
+                color: white;
+                font-size: 0.8rem;
+
+                &:not(:first-child) {
+                    &::before {
+                        content: '|';
+                        font-family: 'Bommer Sans';
+                        display: inline-block;
+                        margin: 0 5px;
+                        color: inherit;
+                        font-weight: bolder;
+                        font-size: inherit;
+                    }
+                }
+
+                button {
+                    background-color: transparent;
+                    border: none;
+                    color: inherit;
+                    font-size: inherit;
+                    font-weight: bolder;
+                    font-family: 'Bommer Sans';
+                    padding: 0;
+                    margin: 0;
+                    outline: none;
+                }
+            }
+        }
+    }
+
+
+    #buon {
+        display: block;
+        overflow: hidden;
+        width: 100%;
+        height: 100vh;
+        background-color: $darkblue;
+        position: relative;
+
+        .disivion {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        #scene {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            width: 100%;
+
+            .wave {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                left: 0;
+                width: 110%;
+                margin-bottom: -5%;
+                margin-left: -5%;
+
+                img {
+                    animation: wave 10s 0.1s infinite linear;
+                    width: 100%;
+                }
+
+                &.wave1 {
+                    z-index: 7;
+                    position: absolute !important;
+                    width: 103%;
+                    margin-left: -1%;
+                    margin-bottom: -1%;
+
+                    img {
+                        animation-direction: reverse;
+                        position: absolute;
+                        bottom: 0;
+                    }
+                }
+
+                &.wave2 {
+                    z-index: 6;
+
+                    img {
+                        position: absolute;
+                        bottom: 0;
+                        width: 100%;
+                    }
+                }
+
+                &.wave3 {
+                    z-index: 5;
+
+                    img {
+                        animation-direction: reverse;
+                        position: absolute;
+                        bottom: 0;
+                        width: 100%;
+                    }
+                }
+
+                &.wave4 {
+                    z-index: 4;
+
+                    img {
+                        position: absolute;
+                        bottom: 0;
+                        width: 100%;
+                    }
+                }
+
+                &.wave5 {
+                    z-index: 3;
+
+                    img {
+                        position: absolute;
+                        bottom: 0;
+                        width: 100%;
+                    }
+                }
+
+                &.wave6 {
+                    z-index: 2;
+
+                    img {
+                        animation-direction: reverse;
+                        position: absolute;
+                        bottom: 0;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        .welcome {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: block;
+            width: 100%;
+            z-index: 8;
+            white-space: nowrap;
+
+            h2 {
+                color: white;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -85%);
+
+                @include small() {
+                    font-size: 4.5em;
+                }
+
+                @include extraSmall() {
+                    font-size: 3em;
+                }
+
+                @include medium() {
+                    font-size: 7em;
+                }
+
+                @include large() {
+                    font-size: 10.9em;
+                }
+            }
+        }
+    }
+
+    #vini {
+        overflow: hidden;
+        position: relative;
+
+        menu {
+            li {
+                color: $primary;
+            }
+        }
+
+        .vini-container {
+            height: 100%;
+            display: flex;
+            align-items: stretch;
+            justify-content: space-between;
+
+            .vini {
+                height: 100%;
+                width: calc(50% - 5px);
+                position: relative;
+                min-height: calc(100vh - 35px);
+                overflow: hidden;
+
+                a {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    right: 0;
+                    left: 0;
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    transition: ease-in-out 500ms;
+
+                    &:hover {
+                        transform: scale(1.05);
+                    }
+
+                    &.flora {
+                        background-image: url(../imgs/flora.jpg);
+                    }
+
+                    &.il-pisani {
+                        background-image: url(../imgs/il-pisani.jpg);
+                    }
+                }
+            }
+        }
+    }
+
+    #nostro-vino {
+        overflow: hidden;
+        position: relative;
+        background-color: $primary;
+        border-top: 5px $grey;
+        background: $primary url(../imgs/patternV.png);
+        background-repeat: repeat-x;
+        background-position: center bottom;
+        animation: slide 20s linear infinite;
+
+        .container {
+            padding: 200px 20px;
+
+            .top-logo {
+                svg {
+                    width: 100%;
+                    max-width: 250px;
+
+                    path {
+                        fill: white;
+                    }
+                }
+            }
+
+            .wine-details {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                p {
+                    margin-left: -12.5rem;
+                    margin-top: 5em;
+                }
+            }
+
+            .section-title {
+                h2 {
+                    font-size: 15.7rem;
+                    line-height: 11.5rem;
+                    color: $gold;
+                    margin-top: -7rem;
+
+                    span {
+                        line-height: 16.4rem;
+                        display: inline-block;
+                    }
+                }
+            }
+
+            .bottle {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(calc(-50% + 260px), -50%);
+
+                svg {
+                    max-width: 17.8rem;
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    #la-casa {
+        overflow: hidden;
+        position: relative;
+        min-height: 1200px;
+
+        menu {
+            li {
+                color: $primary;
+            }
+        }
+
+        .container {
+            padding: 200px 20px;
+
+            .top-logo {
+                svg {
+                    width: 100%;
+                    max-width: 250px;
+                }
+            }
+
+            .about {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 140px;
+
+                .house-text {
+                    p {
+                        color: $primary;
+                    }
+                }
+            }
+        }
+    }
+}

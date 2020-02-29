@@ -1,0 +1,25 @@
+{
+  "name": "villa-dancona",
+  "version": "1.0.0",
+  "description": "Package for Villa D'ancona",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "autoprefixer": "^9.4.2",
+    "node-sass": "latest",
+    "onchange": "^5.2.0",
+    "postcss-cli": "latest"
+  },
+  "scripts": {
+    "build:sass": "node-sass --output-style=expanded --source-map=true assets/scss/main.scss assets/css/main.css compressed",
+    "prefix": "npm run build:sass && postcss assets/css/main.css --use=autoprefixer --output=assets/css/main.css compressed",
+    "start": "onchange \"assets/scss/**/*.scss\" -- npm run prefix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://Mateusgruber@bitbucket.org/Mateusgruber/villa-dancona.git"
+  },
+  "author": "Mateus Gruber",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/Mateusgruber/villa-dancona#readme"
+}
