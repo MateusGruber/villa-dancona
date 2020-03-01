@@ -1,10 +1,35 @@
 document.onreadystatechange = function () {
     if (document.readyState === 'complete') {
+        // Parallax
         // var scene = document.getElementById('scene');
         // var parallaxInstance = new Parallax(scene);
+
+        //Menu
         setMenuPosition()
         window.addEventListener('scroll', function (e) {
             setMenuPosition()
+        });
+
+        //BeforeNAfter
+        document.querySelectorAll('.vecchio-nuovo').forEach(function (elem) {
+
+            var x = undefined,
+                width = undefined;
+
+            elem.onmouseenter = function () {
+
+                var size = elem.getBoundingClientRect();
+
+                x = size.x;
+                width = size.width;
+            };
+
+            elem.onmousemove = function (e) {
+
+                var horizontal = (e.clientX - x) / width * 100;
+
+                elem.style.setProperty('--x', horizontal + '%');
+            };
         });
     }
 };
