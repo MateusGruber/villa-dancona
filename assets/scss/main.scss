@@ -78,10 +78,12 @@ $extra: 1440px;
 }
 
 html {
+    overflow: auto;
     scroll-behavior: smooth;
 }
 
 body {
+    overflow: hidden;
 
     h1,
     h2,
@@ -189,7 +191,7 @@ main {
                 margin-bottom: -5%;
                 margin-left: -5%;
 
-                img {
+                svg {
                     animation: wave 10s 0.1s infinite linear;
                     width: 100%;
                 }
@@ -201,7 +203,7 @@ main {
                     margin-left: -1%;
                     margin-bottom: -1%;
 
-                    img {
+                    svg {
                         animation-direction: reverse;
                         position: absolute;
                         bottom: 0;
@@ -211,7 +213,7 @@ main {
                 &.wave2 {
                     z-index: 6;
 
-                    img {
+                    svg {
                         position: absolute;
                         bottom: 0;
                         width: 100%;
@@ -221,7 +223,7 @@ main {
                 &.wave3 {
                     z-index: 5;
 
-                    img {
+                    svg {
                         animation-direction: reverse;
                         position: absolute;
                         bottom: 0;
@@ -232,7 +234,7 @@ main {
                 &.wave4 {
                     z-index: 4;
 
-                    img {
+                    svg {
                         position: absolute;
                         bottom: 0;
                         width: 100%;
@@ -242,7 +244,7 @@ main {
                 &.wave5 {
                     z-index: 3;
 
-                    img {
+                    svg {
                         position: absolute;
                         bottom: 0;
                         width: 100%;
@@ -252,7 +254,7 @@ main {
                 &.wave6 {
                     z-index: 2;
 
-                    img {
+                    svg {
                         animation-direction: reverse;
                         position: absolute;
                         bottom: 0;
@@ -273,27 +275,37 @@ main {
             z-index: 8;
             white-space: nowrap;
 
-            h2 {
-                color: white;
-                position: absolute;
+            > img {
+                width: 100%;
                 top: 50%;
                 left: 50%;
-                transform: translate(-50%, -85%);
+                transform: translate(-50%, -50%);
+                max-width: 900px;
+                position: absolute;
+            }
 
-                @include small() {
-                    font-size: 4.5em;
-                }
+            h3 {
+                position: absolute;
+                bottom: 100px;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 2.125rem;
+                color: white;
+                font-weight: bold;
+                text-align: center;
+                letter-spacing: 0rem;
 
-                @include extraSmall() {
-                    font-size: 3em;
-                }
-
-                @include medium() {
-                    font-size: 7em;
-                }
-
-                @include large() {
-                    font-size: 10.9em;
+                button {
+                    background-color: transparent;
+                    border: none;
+                    padding: 0;
+                    width: 100%;
+                    outline: none;
+                    cursor: pointer;
+                    img {
+                        max-width: 30px;
+                        cursor: pointer;
+                    }
                 }
             }
         }
