@@ -10,27 +10,6 @@ document.onreadystatechange = function () {
             setMenuPosition()
         });
 
-        //BeforeNAfter
-        document.querySelectorAll('.vecchio-nuovo').forEach(function (elem) {
-
-            var x = undefined,
-                width = undefined;
-
-            elem.onmouseenter = function () {
-
-                var size = elem.getBoundingClientRect();
-
-                x = size.x;
-                width = size.width;
-            };
-
-            elem.onmousemove = function (e) {
-
-                var horizontal = (e.clientX - x) / width * 100;
-
-                elem.style.setProperty('--x', horizontal + '%');
-            };
-        });
     }
 };
 
