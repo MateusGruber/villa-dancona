@@ -78,7 +78,7 @@ $extra: 1440px;
 }
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -360,7 +360,7 @@ main {
         animation: slide 20s linear infinite;
 
         .container {
-            padding: 200px 20px;
+            padding: 200px 15px;
 
             .top-logo {
                 svg {
@@ -424,7 +424,7 @@ main {
         }
 
         .container {
-            padding: 200px 20px;
+            padding: 200px 15px;
 
             .top-logo {
                 svg {
@@ -438,7 +438,7 @@ main {
                 justify-content: space-between;
                 align-items: stretch;
 
-                > div {
+                >div {
                     width: 25%;
                 }
 
@@ -457,6 +457,7 @@ main {
                 .section-title {
                     height: 100%;
                     width: 40%;
+
                     h2 {
                         font-size: 15.875em;
                         line-height: 14rem;
@@ -471,6 +472,7 @@ main {
                     flex-wrap: wrap;
                     flex-direction: column;
                     justify-content: flex-end;
+
                     p {
                         color: $primary;
                         width: 100%;
@@ -483,6 +485,59 @@ main {
                     }
                 }
             }
+
+            #vecchio-nuovo {
+                min-height: 523px;
+                margin-top: 140px;
+
+                img {
+                    width: 100%;
+                }
+            }
         }
+    }
+}
+
+.pixelcompare-container {
+    overflow: inherit;
+    position: relative;
+
+    &::before {
+        content: 'vecchio';
+        font-family: 'BommerSans', Arial, Helvetica, sans-serif;
+        font-size: 3.4rem;
+        color: white;
+        position: absolute;
+        top: 50%;
+        left: -60px;
+        transform: translateY(-50%) rotate(-90deg);
+        z-index: 21;
+    }
+
+    &::after {
+        content: 'nuovo';
+        font-family: 'BommerSans', Arial, Helvetica, sans-serif;
+        font-size: 3.4rem;
+        color: white;
+        position: absolute;
+        top: 50%;
+        right: -30px;
+        transform: translateY(-50%) rotate(-90deg);
+        z-index: 21;
+    }
+}
+
+.pixelcompare-horizontal .pixelcompare-handle {
+    width: 10px;
+    background-color: $primary;
+    height: calc(100% + 20px);
+    top: 10px;
+    box-shadow: none;
+
+    &::before,
+    &::after,
+    .pixelcompare-left-arrow,
+    .pixelcompare-right-arrow {
+        display: none;
     }
 }
