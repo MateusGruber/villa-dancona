@@ -50,16 +50,17 @@ $extra: 1440px;
 //Animation
 @keyframes wave {
     0% {
-        -webkit-transform: rotateZ(0deg) translate3d(0, 10%, 0) rotateZ(0deg);
-        -moz-transform: rotateZ(0deg) translate3d(0, 10%, 0) rotateZ(0deg);
-        transform: rotateZ(0deg) translate3d(0, 10%, 0) rotateZ(0deg);
+        -webkit-transform: translateX(-5%);
+        -moz-transform: translateX(-5%);
+        transform: translateX(-5%);
     }
 
     100% {
-        -webkit-transform: rotateZ(360deg) translate3d(0, 10%, 0) rotateZ(-360deg);
-        -moz-transform: rotateZ(360deg) translate3d(0, 10%, 0) rotateZ(-360deg);
-        transform: rotateZ(360deg) translate3d(0, 10%, 0) rotateZ(-360deg);
+        -webkit-transform: translateX(10%);
+        -moz-transform: translateX(10%);
+        transform: translateX(10%);
     }
+
 }
 
 @keyframes slide {
@@ -72,6 +73,11 @@ $extra: 1440px;
     }
 }
 
+.division {
+    height: 31px;
+    background-image: url(../imgs/division.png);
+    background-size: 31px;
+}
 
 :root {
     font-size: 16px;
@@ -116,49 +122,75 @@ body {
 main {
     overflow: hidden;
 
-    menu {
-        // mix-blend-mode: difference;
-        position: absolute;
-        top: 50%;
-        left: 3%;
-        z-index: 10;
+    .menu-left-right {
+        menu {
+            // mix-blend-mode: difference;
+            position: absolute;
+            top: 50%;
+            left: 3%;
+            z-index: 10;
 
-        ul {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            &:last-child {
+                top: 50%;
+                left: auto;
+                right: 3%;
+                ul {
+                    display: flex;
+                    flex-wrap: wrap;
+                    flex-direction: column;
 
-            li {
-                color: white;
-                font-size: 0.8rem;
-
-                &:not(:first-child) {
-                    &::before {
-                        content: '|';
-                        font-family: 'Bommer Sans';
-                        display: inline-block;
-                        margin: 0 5px;
-                        color: inherit;
-                        font-weight: bolder;
-                        font-size: inherit;
+                    li {
+                        &::before {
+                            display: none !important;
+                        }
+                        button {
+                            svg {
+                                width: 2em;
+                                path {
+                                    fill: white;
+                                }
+                            }
+                        }
                     }
                 }
+            }
 
-                button {
-                    background-color: transparent;
-                    border: none;
-                    color: inherit;
-                    font-size: inherit;
-                    font-weight: bolder;
-                    font-family: 'Bommer Sans';
-                    padding: 0;
-                    margin: 0;
-                    outline: none;
+            ul {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                li {
+                    color: white;
+                    font-size: 0.8rem;
+
+                    &:not(:first-child) {
+                        &::before {
+                            content: '|';
+                            font-family: 'Bommer Sans';
+                            display: inline-block;
+                            margin: 0 5px;
+                            color: inherit;
+                            font-weight: bolder;
+                            font-size: inherit;
+                        }
+                    }
+
+                    button {
+                        background-color: transparent;
+                        border: none;
+                        color: inherit;
+                        font-size: inherit;
+                        font-weight: bolder;
+                        font-family: 'Bommer Sans';
+                        padding: 0;
+                        margin: 0;
+                        outline: none;
+                    }
                 }
             }
         }
     }
-
 
     #buon {
         display: block;
@@ -188,25 +220,23 @@ main {
                 right: 0;
                 left: 0;
                 width: 110%;
-                margin-bottom: -5%;
-                margin-left: -5%;
+                margin-bottom: -8%;
+                margin-left: -15%;
+                animation: wave 6s ease-in-out -1s infinite alternate forwards;
 
                 svg {
-                    animation: wave 10s 0.1s infinite linear;
-                    width: 100%;
+                    width: 110%;
                 }
 
                 &.wave1 {
                     z-index: 7;
                     position: absolute !important;
-                    width: 103%;
-                    margin-left: -1%;
-                    margin-bottom: -1%;
+                    animation-direction: alternate-reverse;
 
                     svg {
-                        animation-direction: reverse;
                         position: absolute;
                         bottom: 0;
+                        margin-bottom: 6%;
                     }
                 }
 
@@ -216,18 +246,17 @@ main {
                     svg {
                         position: absolute;
                         bottom: 0;
-                        width: 100%;
+                        margin-bottom: 2%;
                     }
                 }
 
                 &.wave3 {
                     z-index: 5;
 
+                    animation-direction: alternate-reverse;
                     svg {
-                        animation-direction: reverse;
                         position: absolute;
                         bottom: 0;
-                        width: 100%;
                     }
                 }
 
@@ -237,7 +266,6 @@ main {
                     svg {
                         position: absolute;
                         bottom: 0;
-                        width: 100%;
                     }
                 }
 
@@ -247,18 +275,16 @@ main {
                     svg {
                         position: absolute;
                         bottom: 0;
-                        width: 100%;
                     }
                 }
 
                 &.wave6 {
                     z-index: 2;
 
+                    animation-direction: alternate-reverse;
                     svg {
-                        animation-direction: reverse;
                         position: absolute;
                         bottom: 0;
-                        width: 100%;
                     }
                 }
             }
@@ -275,7 +301,7 @@ main {
             z-index: 8;
             white-space: nowrap;
 
-            > img {
+            >img {
                 width: 100%;
                 top: 50%;
                 left: 50%;
@@ -302,6 +328,7 @@ main {
                     width: 100%;
                     outline: none;
                     cursor: pointer;
+
                     img {
                         max-width: 30px;
                         cursor: pointer;
@@ -318,6 +345,13 @@ main {
         menu {
             li {
                 color: $primary;
+                button {
+                    svg {
+                        path, circle {
+                            fill: $primary;
+                        }
+                    }
+                }
             }
         }
 
@@ -432,6 +466,13 @@ main {
         menu {
             li {
                 color: $primary;
+                button {
+                    svg {
+                        path, circle {
+                            fill: $primary;
+                        }
+                    }
+                }
             }
         }
 
