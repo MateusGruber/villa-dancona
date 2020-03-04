@@ -15,13 +15,17 @@ document.onreadystatechange = function () {
 
 function setMenuPosition() {
     var $buon = document.querySelector('#buon');
-    var $buonMenu = document.querySelector('#buon menu');
+    var $buonMenuL = document.querySelector('#buon menu:first-child');
+    var $buonMenuR = document.querySelector('#buon menu:last-child');
     var $vini = document.querySelector('#vini');
-    var $viniMenu = document.querySelector('#vini menu');
+    var $viniMenuL = document.querySelector('#vini menu:first-child');
+    var $viniMenuR = document.querySelector('#vini menu:last-child');
     var $nostroVini = document.querySelector('#nostro-vino');
-    var $nostroViniMenu = document.querySelector('#nostro-vino menu');
+    var $nostroViniMenuL = document.querySelector('#nostro-vino menu:first-child');
+    var $nostroViniMenuR = document.querySelector('#nostro-vino menu:last-child');
     var $laCasa = document.querySelector('#la-casa');
-    var $laCasaMenu = document.querySelector('#la-casa menu');
+    var $laCasaMenuL = document.querySelector('#la-casa menu:first-child');
+    var $laCasaMenuR = document.querySelector('#la-casa menu:last-child');
 
     var buonHeight = $buon.offsetHeight;
     var viniHeight = $vini.offsetHeight;
@@ -31,8 +35,12 @@ function setMenuPosition() {
     var laCasaHeight = $laCasa.offsetHeight;
     var laCasaOffset = $laCasa.offsetTop;
 
-    $buonMenu.setAttribute('style', 'transform: translateX(-50%) translateY(' + (window.scrollY - (buonHeight - window.innerHeight) / 2) + 'px) rotate(-90deg);')
-    $viniMenu.setAttribute('style', 'transform: translateX(-50%) translateY(' + (window.scrollY - viniOffset - (viniHeight - window.innerHeight) / 2) + '' + 'px) rotate(-90deg);')
-    $nostroViniMenu.setAttribute('style', 'transform: translateX(-50%) translateY(' + (window.scrollY - nostroViniOffset - (nostroViniHeight - window.innerHeight) / 2) + '' + 'px) rotate(-90deg);')
-    $laCasaMenu.setAttribute('style', 'transform: translateX(-50%) translateY(' + (window.scrollY - laCasaOffset - (laCasaHeight - window.innerHeight) / 2) + '' + 'px) rotate(-90deg);')
+    $buonMenuL.setAttribute('style', 'transform: translateX(-50%) translateY(' + (window.scrollY - (buonHeight - window.innerHeight) / 2) + 'px) rotate(-90deg);')
+    $buonMenuR.setAttribute('style', 'transform: translateX(-50%) translateY(' + (window.scrollY - (buonHeight - window.innerHeight) / 2) + 'px);')
+    $viniMenuL.setAttribute('style', 'transform: translateX(-50%) translateY(' + (window.scrollY - viniOffset - (viniHeight - window.innerHeight) / 2) + '' + 'px) rotate(-90deg);')
+    $viniMenuR.setAttribute('style', 'transform: translateX(-50%) translateY(' + (window.scrollY - viniOffset - (viniHeight - window.innerHeight) / 2) + '' + 'px);')
+    $nostroViniMenuL.setAttribute('style', 'transform: translateX(-50%) translateY(' + (window.scrollY - nostroViniOffset - (nostroViniHeight - window.innerHeight) / 2) + '' + 'px) rotate(-90deg);')
+    $nostroViniMenuR.setAttribute('style', 'transform: translateX(-50%) translateY(' + (window.scrollY - nostroViniOffset - (nostroViniHeight - window.innerHeight) / 2) + '' + 'px);')
+    $laCasaMenuL.setAttribute('style', 'transform: translateX(-50%) translateY(' + (window.scrollY - laCasaOffset - (laCasaHeight - window.innerHeight) / 2) + '' + 'px) rotate(-90deg);')
+    $laCasaMenuR.setAttribute('style', 'transform: translateX(-50%) translateY(' + (window.scrollY - laCasaOffset - (laCasaHeight - window.innerHeight) / 2) + '' + 'px);')
 }
