@@ -4,6 +4,28 @@ $darkblue: #090c0e;
 $grey: #76777A;
 $gold: #B79E4B;
 
+$giorno: #7D6A33;
+$giornoColors: (
+    6: #8D7A39,
+    5: #B79E4A,
+    4: #C4AA4F,
+    3: #E2C35B,
+    2: #F4CC66,
+    1: #FFDC67);
+
+$pomeriggio: #878787;
+$pomeriggioColors: (
+    6: #9C9B9B,
+    5: #A9A9A9,
+    4: #C2C1C1,
+    3: #D8D8D8,
+    2: #EFEFEF,
+    1: #FFFFFF);
+
+//Mixins
+
+
+
 //Breakpoints
 $extraSmall: 500px;
 $small: 768px;
@@ -12,7 +34,6 @@ $large: 1200px;
 $extra: 1440px;
 
 //Queries
-
 //between 501 and 768
 @mixin extraSmall {
     @media screen and (max-width: $extraSmall) {
@@ -134,6 +155,7 @@ main {
                 top: 50%;
                 left: auto;
                 right: 3%;
+
                 ul {
                     display: flex;
                     flex-wrap: wrap;
@@ -143,9 +165,11 @@ main {
                         &::before {
                             display: none !important;
                         }
+
                         button {
                             svg {
                                 width: 2em;
+
                                 path {
                                     fill: white;
                                 }
@@ -254,6 +278,7 @@ main {
                     z-index: 5;
 
                     animation-direction: alternate-reverse;
+
                     svg {
                         position: absolute;
                         bottom: 0;
@@ -282,6 +307,7 @@ main {
                     z-index: 2;
 
                     animation-direction: alternate-reverse;
+
                     svg {
                         position: absolute;
                         bottom: 0;
@@ -336,6 +362,44 @@ main {
                 }
             }
         }
+
+        &.giorno {
+            background-color: $giorno;
+            #scene {
+                .wave {
+                    @for $i from 1 through 6 {
+                        &.wave {
+                            &#{$i} {
+                                svg {
+                                    path {
+                                        fill: map-get($giornoColors, $i);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.pomeriggio {
+            background-color: $pomeriggio;
+            #scene {
+                .wave {
+                    @for $i from 1 through 6 {
+                        &.wave {
+                            &#{$i} {
+                                svg {
+                                    path {
+                                        fill: map-get($pomeriggioColors, $i);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     #vini {
@@ -345,9 +409,12 @@ main {
         menu {
             li {
                 color: $primary;
+
                 button {
                     svg {
-                        path, circle {
+
+                        path,
+                        circle {
                             fill: $primary;
                         }
                     }
@@ -466,9 +533,12 @@ main {
         menu {
             li {
                 color: $primary;
+
                 button {
                     svg {
-                        path, circle {
+
+                        path,
+                        circle {
                             fill: $primary;
                         }
                     }

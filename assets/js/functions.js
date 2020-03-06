@@ -1,5 +1,8 @@
 document.onreadystatechange = function () {
     if (document.readyState === 'complete') {
+        var greetings = getGreetingTime(new Date());
+        document.getElementById('buon').classList.add(greetings)
+        document.getElementById('greetings').innerText = greetingsMsg(greetings)
         // Parallax
         // var scene = document.getElementById('scene');
         // var parallaxInstance = new Parallax(scene);
@@ -43,4 +46,33 @@ function setMenuPosition() {
     $nostroViniMenuR.setAttribute('style', 'transform: translateX(-50%) translateY(' + (window.scrollY - nostroViniOffset - (nostroViniHeight - window.innerHeight) / 2) + '' + 'px);')
     $laCasaMenuL.setAttribute('style', 'transform: translateX(-50%) translateY(' + (window.scrollY - laCasaOffset - (laCasaHeight - window.innerHeight) / 2) + '' + 'px) rotate(-90deg);')
     $laCasaMenuR.setAttribute('style', 'transform: translateX(-50%) translateY(' + (window.scrollY - laCasaOffset - (laCasaHeight - window.innerHeight) / 2) + '' + 'px);')
+}
+
+
+function getGreetingTime(d) {
+    var time = d.getHours();
+    if (time < 12) {
+        return 'giorno'
+    }
+    if (time >= 12 && time <= 18) {
+        return 'pomeriggio'
+    }
+    if (time >= 18) {
+        return 'notte'
+    }
+}
+
+function greetingsMsg(greeting) {
+    //Better than switch case :)
+    return {
+        "giorno": (function () {
+            return 'Buongiorno'
+        })(),
+        "pomeriggio": (function () {
+            return 'Buon pomeriggio'
+        })(),
+        "notte": (function () {
+            return 'Buona notte'
+        })()
+    }[greeting]
 }
