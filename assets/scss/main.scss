@@ -261,7 +261,12 @@ main {
                 margin-left: -15%;
                 
                 svg {
-                    animation: wave 6s ease-in-out -1s infinite alternate forwards;
+                    @include extralarge() {
+                        animation: wave 6s ease-in-out -1s infinite alternate forwards;
+                    }
+                    @include large() {
+                        animation: wave 6s ease-in-out -1s infinite alternate forwards;
+                    }
                     width: 170%;
                     margin-left: -40%;
                 }
