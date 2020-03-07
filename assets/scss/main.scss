@@ -209,17 +209,20 @@ main {
                             font-size: inherit;
                         }
                     }
-
-                    button {
-                        background-color: transparent;
-                        border: none;
+                    a {
                         color: inherit;
-                        font-size: inherit;
-                        font-weight: bolder;
-                        font-family: 'Bommer Sans';
-                        padding: 0;
-                        margin: 0;
-                        outline: none;
+                        button {
+                            cursor: pointer;
+                            background-color: transparent;
+                            border: none;
+                            color: inherit;
+                            font-size: inherit;
+                            font-weight: bolder;
+                            font-family: 'Bommer Sans';
+                            padding: 0;
+                            margin: 0;
+                            outline: none;
+                        }
                     }
                 }
             }
@@ -256,7 +259,7 @@ main {
                 width: 110%;
                 margin-bottom: -8%;
                 margin-left: -15%;
-                animation: wave 6s ease-in-out -1s infinite alternate forwards;
+                // animation: wave 6s ease-in-out -1s infinite alternate forwards;
 
                 svg {
                     width: 110%;
@@ -486,6 +489,7 @@ main {
 
         .container {
             padding: 200px 15px;
+            position: relative;
 
             .top-logo {
                 svg {
@@ -507,6 +511,12 @@ main {
                     margin-left: -12.5rem;
                     margin-top: 5em;
                 }
+            }
+
+            #house2 {
+                position: absolute;
+                top: 200px;
+                right: 0;
             }
 
             .section-title {
@@ -643,14 +653,14 @@ main {
 
         menu {
             li {
-                color: $primary;
+                color: $gold;
 
                 button {
                     svg {
 
                         path,
                         circle {
-                            fill: $primary;
+                            fill: $gold;
                         }
                     }
                 }
@@ -673,6 +683,32 @@ main {
                 img {
                     width: 100%;
                     image-orientation: 90deg flip;
+                }
+            }
+        }
+    }
+
+    #contact {
+        position: relative;
+        overflow: hidden;
+        background-image: url(../imgs/oldmap.svg);
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        min-height: 850px;
+
+        menu {
+            li {
+                color: $gold;
+
+                button {
+                    svg {
+
+                        path,
+                        circle {
+                            fill: $gold;
+                        }
+                    }
                 }
             }
         }

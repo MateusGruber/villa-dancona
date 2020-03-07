@@ -22,6 +22,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/main.css">
     <script type="text/javascript" src="assets/js/tiny-slider.min.js"></script>
     <script type="text/javascript" src="assets/js/aos.min.js"></script>
+    <script type="text/javascript" src="assets/js/parallax.js"></script>
     <script type="text/javascript" src="assets/js/vivus.min.js"></script>
     <script type="text/javascript" src="assets/js/functions.js"></script>
 </head>
@@ -33,10 +34,10 @@
                 <menu style="transform: translateX(-50%) translateY(0px) rotate(-90deg);">
                     <nav>
                         <ul>
-                            <li><button>INÍCIO</button></li>
-                            <li><button>O VINHO</button></li>
-                            <li><button>A CASA</button></li>
-                            <li><button>CONTATO</button></li>
+                            <li><a href="#welcome"><button id="goTop">INÍCIO</button></a></li>
+                            <li><a href="#nostro-vino"><button id="goWine">O VINHO</button></a></li>
+                            <li><a href="#la-casa"><button id="goHouse">A CASA</button></a></li>
+                            <li><a href="#contact"><button id="goContact">CONTATO</button></a></li>
                         </ul>
                     </nav>
                 </menu>
@@ -120,7 +121,7 @@
             </div>
             <div class="division"></div>
             <div id="scene" data-aos-delay="200" data-aos="fade-up">
-                <div class="wave wave1" data-depth="0.00">
+                <div class="wave wave1" data-depth="0.20">
                     <svg xmlns="http://www.w3.org/2000/svg" width="1918" viewBox="0 0 1918 203">
                         <g>
                             <g>
@@ -130,7 +131,7 @@
                         </g>
                     </svg>
                 </div>
-                <div class="wave wave2" data-depth="0.10">
+                <div class="wave wave2" data-depth="0.20">
                     <svg xmlns="http://www.w3.org/2000/svg" width="1615" viewBox="0 0 1615 195">
                         <g>
                             <g>
@@ -181,7 +182,7 @@
                     </svg>
                 </div>
             </div>
-            <div class="welcome">
+            <div id="welcome" class="welcome">
                 <img src="assets/imgs/main-logo.svg" alt="Villa D'Ancona" data-aos="fade-up">
                 <h3 data-aos-delay="150" data-aos="fade">
                     <span id="greetings"></span>,<br /> sentirsi a casa!<br>
@@ -195,10 +196,10 @@
                 <menu style="transform: rotate(-90deg)">
                     <nav>
                         <ul>
-                            <li><button>INÍCIO</button></li>
-                            <li><button>O VINHO</button></li>
-                            <li><button>A CASA</button></li>
-                            <li><button>CONTATO</button></li>
+                            <li><a href="#welcome"><button id="goTop">INÍCIO</button></a></li>
+                            <li><a href="#nostro-vino"><button id="goWine">O VINHO</button></a></li>
+                            <li><a href="#la-casa"><button id="goHouse">A CASA</button></a></li>
+                            <li><a href="#contact"><button id="goContact">CONTATO</button></a></li>
                         </ul>
                     </nav>
                 </menu>
@@ -296,10 +297,10 @@
                 <menu style="transform: rotate(-90deg)">
                     <nav>
                         <ul>
-                            <li><button>INÍCIO</button></li>
-                            <li><button>O VINHO</button></li>
-                            <li><button>A CASA</button></li>
-                            <li><button>CONTATO</button></li>
+                            <li><a href="#welcome"><button id="goTop">INÍCIO</button></a></li>
+                            <li><a href="#nostro-vino"><button id="goWine">O VINHO</button></a></li>
+                            <li><a href="#la-casa"><button id="goHouse">A CASA</button></a></li>
+                            <li><a href="#contact"><button id="goContact">CONTATO</button></a></li>
                         </ul>
                     </nav>
                 </menu>
@@ -449,62 +450,7 @@
                         <span>vino</span>
                     </h2>
                 </div>
-                <div class="bottle">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                        viewBox="0 0 282.02 874.05">
-                        <defs>
-                            <style>
-                                .cls-1 {
-                                    fill: none;
-                                }
-
-                                .cls-2 {
-                                    fill: #fff;
-                                }
-
-                                .cls-3 {
-                                    clip-path: url(#clip-path);
-                                }
-
-                                .cls-4 {
-                                    fill: #28347b;
-                                }
-
-                                .cls-5 {
-                                    clip-path: url(#clip-path-2);
-                                }
-                            </style>
-                            <clipPath id="clip-path" transform="translate(15.23)">
-                                <path id="SVGID" class="cls-1"
-                                    d="M205.06,361.81s.76-18.88-.05-37.25a93,93,0,0,0-24.65-58.09c-8.37-8.93-24.48-21.15-30.18-28-9.64-11.52-7.5-19.87-7.5-40.82V52.18a9.34,9.34,0,0,0,2.95-6.81V24.59a9.36,9.36,0,0,0-2.95-6.82v-9A8.73,8.73,0,0,0,134,0H71.43A8.73,8.73,0,0,0,62.7,8.73v9a9.36,9.36,0,0,0-3,6.82V45.37a9.34,9.34,0,0,0,3,6.81V197.7c0,21,2.14,29.3-7.5,40.82-5.69,6.8-21.81,19-30.18,28A93.07,93.07,0,0,0,.37,324.56c-.81,18.37,0,37.25,0,37.25V834.26S-.13,844,4.15,850.68,24.08,874.35,88.67,874h.51l13.51-.07,13.51.07h.51c64.59.31,80.25-16.69,84.53-23.36s3.82-16.42,3.82-16.42Z" />
-                            </clipPath>
-                            <clipPath id="clip-path-2" transform="translate(15.23)">
-                                <path id="SVGID-2" data-name="SVGID" class="cls-1"
-                                    d="M175.07,745.51a557.71,557.71,0,0,1-145.23,0c-8.2-1.19-14.82-9-14.82-17.27V406.65c0-8.23,6.62-16.08,14.82-17.26a556.84,556.84,0,0,1,145.23,0c8.2,1.18,14.82,9,14.82,17.26V728.24C189.89,736.47,183.27,744.32,175.07,745.51Z" />
-                            </clipPath>
-                        </defs>
-                        <title>bottleAtivo 1</title>
-                        <g id="Camada_2" data-name="Camada 2">
-                            <g id="Camada_1-2" data-name="Camada 1">
-                                <path class="cls-2"
-                                    d="M205.06,361.81s.76-18.88-.05-37.25a93,93,0,0,0-24.65-58.09c-8.37-8.93-24.48-21.15-30.18-28-9.64-11.52-7.5-19.87-7.5-40.82V52.18a9.34,9.34,0,0,0,2.95-6.81V24.59a9.36,9.36,0,0,0-2.95-6.82v-9A8.73,8.73,0,0,0,134,0H71.43A8.73,8.73,0,0,0,62.7,8.73v9a9.36,9.36,0,0,0-3,6.82V45.37a9.34,9.34,0,0,0,3,6.81V197.7c0,21,2.14,29.3-7.5,40.82-5.69,6.8-21.81,19-30.18,28A93.07,93.07,0,0,0,.37,324.56c-.81,18.37,0,37.25,0,37.25V834.26S-.13,844,4.15,850.68,24.08,874.35,88.67,874h.51l13.51-.07,13.51.07h.51c64.59.31,80.25-16.69,84.53-23.36s3.82-16.42,3.82-16.42Z"
-                                    transform="translate(15.23)" />
-                                <g class="cls-3">
-                                    <path class="cls-4"
-                                        d="M175.07,745.51a557.71,557.71,0,0,1-145.23,0c-8.2-1.19-14.82-9-14.82-17.27V406.65c0-8.23,6.62-16.08,14.82-17.26a556.84,556.84,0,0,1,145.23,0c8.2,1.18,14.82,9,14.82,17.26V728.24C189.89,736.47,183.27,744.32,175.07,745.51Z"
-                                        transform="translate(15.23)" />
-                                    <g class="cls-5">
-                                        <path class="cls-2"
-                                            d="M-13.94,409.68H-3.27l-5.33-5.34ZM247.94,405h0l-12.22-12.21L223.5,405l-12.21-12.22L199.07,405h0l-12.21-12.21L174.64,405l-12.21-12.21L150.21,405h0L138,392.82,125.78,405l-12.22-12.22L101.34,405h0L89.13,392.82,76.91,405,64.7,392.82,52.48,405h0L40.27,392.82,28.05,405,15.83,392.82,3.61,405h0L-8.6,392.82l-6.63,6.63v4.64l6.63-6.62L3.61,409.68v0l12.22-12.21L28,409.66l12.22-12.19,12.22,12.21v0L64.7,397.47l12.21,12.21,12.22-12.21,12.21,12.21v0l12.22-12.21,12.21,12.17L138,397.47l12.21,12.21v0l12.22-12.21,12.21,12.21,12.22-12.21,12.21,12.21v0l12.22-12.21,12.21,12.19,12.22-12.19,12.21,12.21v0l12.21-12.21,6.63,6.62v-4.64l-6.62-6.63ZM10.49,409.68H21.17l-5.34-5.34Zm-25.72-25.44v8.33L-8.6,386l12.21,12.2v0L15.83,386,28,398.14,40.26,386l12.22,12.2v0L64.7,386l12.21,12.2L89.13,386l12.21,12.2v0L113.56,386l12.21,12.16L138,386l12.21,12.2v0L162.43,386l12.21,12.2L186.86,386l12.21,12.2v0L211.29,386l12.21,12.19L235.72,386l12.21,12.2v0L260.15,386l6.63,6.62v-8.33Zm18.84,9.28h0Zm48.87,0h0Zm48.86,0h0Zm48.87,0h0Zm48.86,0h0Zm48.87,0h0Zm-42,16.16h10.67l-5.33-5.34Zm-24.43,0h10.67l-5.34-5.34Zm73.3,0h10.67l-5.34-5.34Zm-24.44,0h10.68l-5.34-5.34Zm-73.29,0h10.67l-5.34-5.34Zm-122.16,0H45.6l-5.34-5.34Zm48.86,0H94.46l-5.33-5.34Zm-24.43,0H70l-5.33-5.34Zm73.3,0h10.67L138,404.34Zm-24.44,0H118.9l-5.34-5.34Z"
-                                            transform="translate(15.23)" />
-                                    </g>
-                                </g>
-                                <ellipse class="cls-4" cx="168.67" cy="296.23" rx="9.21" ry="21.96"
-                                    transform="translate(-82.68 83.78) rotate(-21.79)" />
-                            </g>
-                        </g>
-                    </svg>
-                </div>
+                <div id="house2"></div>
             </div>
         </section>
 
@@ -513,10 +459,10 @@
                 <menu style="transform: rotate(-90deg)">
                     <nav>
                         <ul>
-                            <li><button>INÍCIO</button></li>
-                            <li><button>O VINHO</button></li>
-                            <li><button>A CASA</button></li>
-                            <li><button>CONTATO</button></li>
+                            <li><a href="#welcome"><button id="goTop">INÍCIO</button></a></li>
+                            <li><a href="#nostro-vino"><button id="goWine">O VINHO</button></a></li>
+                            <li><a href="#la-casa"><button id="goHouse">A CASA</button></a></li>
+                            <li><a href="#contact"><button id="goContact">CONTATO</button></a></li>
                         </ul>
                     </nav>
                 </menu>
@@ -670,7 +616,7 @@
                             quase 90 anos depois, chegou o momento da família retomar essa tradição e compartilhar com o
                             resto do mundo o sabor da sua trajetória.</p>
 
-                            <div id="house1"></div>
+                        <div id="house1"></div>
                     </div>
 
                     <div class="section-title" data-aos="fade-top">
@@ -683,9 +629,11 @@
                     </div>
                 </div>
 
-                <div id="vecchio-nuovo" class="pixelcompare" data-pixelcompare>
-                    <img src="assets/imgs/vecchio.jpg" alt="Antes e depois">
-                    <img src="assets/imgs/nuovo.jpg" alt="Antes e depois">
+                <div data-aos="fade-top">
+                    <div id="vecchio-nuovo" class="pixelcompare" data-pixelcompare>
+                        <img src="assets/imgs/vecchio.jpg" alt="Antes e depois">
+                        <img src="assets/imgs/nuovo.jpg" alt="Antes e depois">
+                    </div>
                 </div>
             </div>
         </section>
@@ -695,10 +643,10 @@
                 <menu style="transform: rotate(-90deg)">
                     <nav>
                         <ul>
-                            <li><button>INÍCIO</button></li>
-                            <li><button>O VINHO</button></li>
-                            <li><button>A CASA</button></li>
-                            <li><button>CONTATO</button></li>
+                            <li><a href="#welcome"><button id="goTop">INÍCIO</button></a></li>
+                            <li><a href="#nostro-vino"><button id="goWine">O VINHO</button></a></li>
+                            <li><a href="#la-casa"><button id="goHouse">A CASA</button></a></li>
+                            <li><a href="#contact"><button id="goContact">CONTATO</button></a></li>
                         </ul>
                     </nav>
                 </menu>
@@ -789,6 +737,99 @@
                 <div><img src="assets/imgs/photos/casa3.jpg" alt="Foto da casa 3" style="max-width: 333px;"></div>
             </div>
         </section>
+
+        <section id="contact">
+            <div class="menu-left-right">
+                <menu style="transform: rotate(-90deg)">
+                    <nav>
+                        <ul>
+                            <li><a href="#welcome"><button id="goTop">INÍCIO</button></a></li>
+                            <li><a href="#nostro-vino"><button id="goWine">O VINHO</button></a></li>
+                            <li><a href="#la-casa"><button id="goHouse">A CASA</button></a></li>
+                            <li><a href="#contact"><button id="goContact">CONTATO</button></a></li>
+                        </ul>
+                    </nav>
+                </menu>
+                <menu>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="">
+                                    <button>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.3 25.3">
+                                            <defs>
+                                                <style>
+                                                    .cls-1 {
+                                                        fill: #fff;
+                                                    }
+                                                </style>
+                                            </defs>
+                                            <title>Ativo 2</title>
+                                            <g id="Camada_2" data-name="Camada 2">
+                                                <g id="Camada_1-2" data-name="Camada 1">
+                                                    <path class="cls-1"
+                                                        d="M25.3,12.65A12.65,12.65,0,1,0,12.65,25.3h.22V15.45H10.16V12.28h2.71V10a3.8,3.8,0,0,1,4.07-4.17,22.3,22.3,0,0,1,2.43.12V8.73H17.71c-1.31,0-1.57.62-1.57,1.54v2h3.14l-.41,3.17H16.14v9.36A12.64,12.64,0,0,0,25.3,12.65Z" />
+                                                </g>
+                                            </g>
+                                        </svg>
+                                    </button>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <button>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.3 25.3">
+                                            <defs>
+                                                <style>
+                                                    .cls-1 {
+                                                        fill: #fff;
+                                                    }
+                                                </style>
+                                            </defs>
+                                            <title>Ativo 3</title>
+                                            <g id="Camada_2" data-name="Camada 2">
+                                                <g id="Camada_1-2" data-name="Camada 1">
+                                                    <path class="cls-1"
+                                                        d="M15.07,12.65a2.42,2.42,0,1,1-2.42-2.42A2.42,2.42,0,0,1,15.07,12.65Z" />
+                                                    <path class="cls-1"
+                                                        d="M12.65,16.38a3.73,3.73,0,1,1,3.73-3.73A3.73,3.73,0,0,1,12.65,16.38Zm3.88-6.73a.88.88,0,1,1,.87-.88A.87.87,0,0,1,16.53,9.65Z" />
+                                                    <path class="cls-1"
+                                                        d="M12.65,0A12.65,12.65,0,1,0,25.3,12.65,12.66,12.66,0,0,0,12.65,0Zm7.22,15.65a5.45,5.45,0,0,1-.33,1.76,3.72,3.72,0,0,1-2.13,2.13,5.45,5.45,0,0,1-1.76.33c-.78,0-1,.05-3,.05s-2.22,0-3-.05a5.52,5.52,0,0,1-1.77-.33,3.65,3.65,0,0,1-1.28-.84,3.56,3.56,0,0,1-.84-1.29,5.42,5.42,0,0,1-.34-1.76c0-.78,0-1,0-3s0-2.22,0-3a5.49,5.49,0,0,1,.34-1.77A3.77,3.77,0,0,1,7.89,5.77a5.49,5.49,0,0,1,1.77-.34c.77,0,1,0,3,0s2.22,0,3,0a5.42,5.42,0,0,1,1.76.34,3.56,3.56,0,0,1,1.29.84,3.65,3.65,0,0,1,.84,1.28,5.26,5.26,0,0,1,.33,1.77c0,.77.05,1,.05,3S19.91,14.87,19.87,15.65Z" />
+                                                </g>
+                                            </g>
+                                        </svg>
+                                    </button>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <button>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.3 25.3">
+                                            <defs>
+                                                <style>
+                                                    .cls-1 {
+                                                        fill: #fff;
+                                                    }
+                                                </style>
+                                            </defs>
+                                            <title>Ativo 5</title>
+                                            <g id="Camada_2" data-name="Camada 2">
+                                                <g id="Camada_1-2" data-name="Camada 1">
+                                                    <circle class="cls-1" cx="12.65" cy="9.91" r="3.1" />
+                                                    <path class="cls-1"
+                                                        d="M12.65,0A12.65,12.65,0,1,0,25.3,12.65,12.65,12.65,0,0,0,12.65,0Zm5.46,12.85L13,22.1a.39.39,0,0,1-.68,0L7.2,12.85A6.2,6.2,0,1,1,18.85,9.91,6.28,6.28,0,0,1,18.11,12.85Z" />
+                                                </g>
+                                            </g>
+                                        </svg>
+                                    </button>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </menu>
+            </div>
+        </section>
+        <div class="division"></div>
 
     </main>
 
