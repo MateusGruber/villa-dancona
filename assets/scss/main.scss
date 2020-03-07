@@ -81,9 +81,9 @@ $extra: 1440px;
 
 @keyframes wave {
     0% {
-        -webkit-transform: translateX(-5%);
-        -moz-transform: translateX(-5%);
-        transform: translateX(-5%);
+        -webkit-transform: translateX(0%);
+        -moz-transform: translateX(0%);
+        transform: translateX(0%);
     }
 
     100% {
@@ -259,18 +259,19 @@ main {
                 width: 110%;
                 margin-bottom: -8%;
                 margin-left: -15%;
-                // animation: wave 6s ease-in-out -1s infinite alternate forwards;
-
+                
                 svg {
-                    width: 110%;
+                    animation: wave 6s ease-in-out -1s infinite alternate forwards;
+                    width: 170%;
+                    margin-left: -40%;
                 }
 
                 &.wave1 {
                     z-index: 7;
                     position: absolute !important;
-                    animation-direction: alternate-reverse;
-
+                    
                     svg {
+                        animation-direction: alternate-reverse;
                         position: absolute;
                         bottom: 0;
                         margin-bottom: 5%;
@@ -290,9 +291,9 @@ main {
                 &.wave3 {
                     z-index: 5;
 
-                    animation-direction: alternate-reverse;
-
+                    
                     svg {
+                        animation-direction: alternate-reverse;
                         position: absolute;
                         bottom: 0;
                     }
@@ -312,16 +313,16 @@ main {
 
                     svg {
                         position: absolute;
-                        bottom: 0;
+                        bottom: 10%;
                     }
                 }
 
                 &.wave6 {
                     z-index: 2;
 
-                    animation-direction: alternate-reverse;
-
+                    
                     svg {
+                        animation-direction: alternate-reverse;
                         position: absolute;
                         bottom: 0;
                     }
