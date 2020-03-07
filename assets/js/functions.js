@@ -28,6 +28,9 @@ document.onreadystatechange = function () {
             autoplayTimeout: 5000,
             center: true,
         });
+
+        //Vivus
+        new Vivus('house1', {duration: 200, file: 'assets/imgs/house.svg'});
     }
 };
 
@@ -73,13 +76,13 @@ function setMenuPosition() {
 
 function getGreetingTime(d) {
     var time = d.getHours();
-    if (time < 12) {
+    if (time > 6 && time < 12) {
         return 'giorno'
     }
-    if (time >= 12 && time <= 18) {
+    if (time >= 12 && time < 18) {
         return 'pomeriggio'
     }
-    if (time >= 18) {
+    if (time >= 18 || time <= 6) {
         return 'notte'
     }
 }

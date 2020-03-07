@@ -524,9 +524,9 @@ main #la-casa .container .about .house-text p {
   color: #28347b;
 }
 
-main #la-casa .container .about .house-text img {
+main #la-casa .container .about .house-text svg {
   margin-top: 120px;
-  max-width: 128px;
+  max-width: 248px;
 }
 
 main #la-casa .container .about .section-title {
