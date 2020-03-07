@@ -16,10 +16,12 @@
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/pixelcompare.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/fonts.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/fonts.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/aos.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/tiny-slider.min.css">
     <!--[if (lt IE 9)]><script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.helper.ie8.js"></script><![endif]-->
     <link rel="stylesheet" type="text/css" href="assets/css/main.css">
     <script type="text/javascript" src="assets/js/tiny-slider.min.js"></script>
+    <script type="text/javascript" src="assets/js/aos.min.js"></script>
     <script type="text/javascript" src="assets/js/functions.js"></script>
 </head>
 
@@ -27,7 +29,7 @@
     <main id="app" data-simplebar>
         <section id="buon">
             <div class="menu-left-right">
-                <menu style="transform: rotate(-90deg)">
+                <menu style="transform: translateX(-50%) translateY(0px) rotate(-90deg);">
                     <nav>
                         <ul>
                             <li><button>INÍCIO</button></li>
@@ -116,7 +118,7 @@
                 </menu>
             </div>
             <div class="division"></div>
-            <div id="scene">
+            <div id="scene" data-aos-delay="200" data-aos="fade-up">
                 <div class="wave wave1" data-depth="0.00">
                     <svg xmlns="http://www.w3.org/2000/svg" width="1918" viewBox="0 0 1918 203">
                         <g>
@@ -179,10 +181,10 @@
                 </div>
             </div>
             <div class="welcome">
-                <img src="assets/imgs/main-logo.svg" alt="Villa D'Ancona">
-                <h3>
+                <img src="assets/imgs/main-logo.svg" alt="Villa D'Ancona" data-aos="fade-up">
+                <h3 data-aos-delay="150" data-aos="fade">
                     <span id="greetings"></span>,<br /> sentirsi a casa!<br>
-                    <button><img src="assets/imgs/arrow.svg" alt="Seta"></button>
+                    <button id="arrow"><img src="assets/imgs/arrow.svg" alt="Seta"></button>
                 </h3>
             </div>
         </section>
@@ -379,7 +381,7 @@
                 </menu>
             </div>
             <div class="container">
-                <div class="top-logo">
+                <div class="top-logo" data-aos="fade">
                     <?xml version="1.0" encoding="utf-8"?>
                     <svg version="1.1" id="Camada_1" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 250 38"
@@ -432,14 +434,14 @@
                     </svg>
 
                 </div>
-                <div class="wine-details">
+                <div class="wine-details" data-aos="fade-left">
                     <p>Em parceria com a Tenuta San Fabiano, vinícola mais renomada da região, a Fattoria Villa D’Ancona
                         transforma a paixão de longa data pela bebida em rótulos cuidadosamente produzidos -- começando
                         pela seleção criteriosa das uvas, passando pela colheita manual, os processos de fermentação
                         e maturação tradicionais da Toscana, até chegar na sua taça: o melhor final feliz imaginável
                         para essa grande história. </p>
                 </div>
-                <div class="section-title">
+                <div class="section-title" data-aos="fade-right">
                     <h2>
                         il<br>
                         nostro<br>
@@ -598,7 +600,7 @@
             <div class="container">
                 <div class="about">
                     <div class="house-text">
-                        <div class="top-logo">
+                        <div class="top-logo" data-aos="fade">
                             <?xml version="1.0" encoding="utf-8"?>
                             <svg version="1.1" id="Camada_1" xmlns="http://www.w3.org/2000/svg"
                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 250 38"
@@ -651,7 +653,7 @@
                             </svg>
 
                         </div>
-                        <p>Tudo acontece na região de Casentino,
+                        <p data-aos="fade-right">Tudo acontece na região de Casentino,
                             no coração da Toscana: a cidade natal
                             de Michelangelo inspirou Dante Alighieri
                             a escrever parte da Divina Comédia. Leonardo da Vinci, que passou anos estudando na região,
@@ -670,11 +672,11 @@
                         <img src="assets/imgs/house.svg" class="house-img" alt="Casa D'Ancona">
                     </div>
 
-                    <div class="section-title">
+                    <div class="section-title" data-aos="fade-top">
                         <h2>la casa<br> nostra</h2>
                     </div>
 
-                    <div class="house-painting">
+                    <div class="house-painting" data-aos="fade-left">
                         <p>Villa D’Ancona, uma história da Toscana.</p>
                         <img src="assets/imgs/house-paiting.jpg" alt="Casa">
                     </div>
@@ -688,8 +690,102 @@
         </section>
 
         <section id="photos">
+            <div class="menu-left-right">
+                <menu style="transform: rotate(-90deg)">
+                    <nav>
+                        <ul>
+                            <li><button>INÍCIO</button></li>
+                            <li><button>O VINHO</button></li>
+                            <li><button>A CASA</button></li>
+                            <li><button>CONTATO</button></li>
+                        </ul>
+                    </nav>
+                </menu>
+                <menu>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="">
+                                    <button>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.3 25.3">
+                                            <defs>
+                                                <style>
+                                                    .cls-1 {
+                                                        fill: #fff;
+                                                    }
+                                                </style>
+                                            </defs>
+                                            <title>Ativo 2</title>
+                                            <g id="Camada_2" data-name="Camada 2">
+                                                <g id="Camada_1-2" data-name="Camada 1">
+                                                    <path class="cls-1"
+                                                        d="M25.3,12.65A12.65,12.65,0,1,0,12.65,25.3h.22V15.45H10.16V12.28h2.71V10a3.8,3.8,0,0,1,4.07-4.17,22.3,22.3,0,0,1,2.43.12V8.73H17.71c-1.31,0-1.57.62-1.57,1.54v2h3.14l-.41,3.17H16.14v9.36A12.64,12.64,0,0,0,25.3,12.65Z" />
+                                                </g>
+                                            </g>
+                                        </svg>
+                                    </button>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <button>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.3 25.3">
+                                            <defs>
+                                                <style>
+                                                    .cls-1 {
+                                                        fill: #fff;
+                                                    }
+                                                </style>
+                                            </defs>
+                                            <title>Ativo 3</title>
+                                            <g id="Camada_2" data-name="Camada 2">
+                                                <g id="Camada_1-2" data-name="Camada 1">
+                                                    <path class="cls-1"
+                                                        d="M15.07,12.65a2.42,2.42,0,1,1-2.42-2.42A2.42,2.42,0,0,1,15.07,12.65Z" />
+                                                    <path class="cls-1"
+                                                        d="M12.65,16.38a3.73,3.73,0,1,1,3.73-3.73A3.73,3.73,0,0,1,12.65,16.38Zm3.88-6.73a.88.88,0,1,1,.87-.88A.87.87,0,0,1,16.53,9.65Z" />
+                                                    <path class="cls-1"
+                                                        d="M12.65,0A12.65,12.65,0,1,0,25.3,12.65,12.66,12.66,0,0,0,12.65,0Zm7.22,15.65a5.45,5.45,0,0,1-.33,1.76,3.72,3.72,0,0,1-2.13,2.13,5.45,5.45,0,0,1-1.76.33c-.78,0-1,.05-3,.05s-2.22,0-3-.05a5.52,5.52,0,0,1-1.77-.33,3.65,3.65,0,0,1-1.28-.84,3.56,3.56,0,0,1-.84-1.29,5.42,5.42,0,0,1-.34-1.76c0-.78,0-1,0-3s0-2.22,0-3a5.49,5.49,0,0,1,.34-1.77A3.77,3.77,0,0,1,7.89,5.77a5.49,5.49,0,0,1,1.77-.34c.77,0,1,0,3,0s2.22,0,3,0a5.42,5.42,0,0,1,1.76.34,3.56,3.56,0,0,1,1.29.84,3.65,3.65,0,0,1,.84,1.28,5.26,5.26,0,0,1,.33,1.77c0,.77.05,1,.05,3S19.91,14.87,19.87,15.65Z" />
+                                                </g>
+                                            </g>
+                                        </svg>
+                                    </button>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <button>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.3 25.3">
+                                            <defs>
+                                                <style>
+                                                    .cls-1 {
+                                                        fill: #fff;
+                                                    }
+                                                </style>
+                                            </defs>
+                                            <title>Ativo 5</title>
+                                            <g id="Camada_2" data-name="Camada 2">
+                                                <g id="Camada_1-2" data-name="Camada 1">
+                                                    <circle class="cls-1" cx="12.65" cy="9.91" r="3.1" />
+                                                    <path class="cls-1"
+                                                        d="M12.65,0A12.65,12.65,0,1,0,25.3,12.65,12.65,12.65,0,0,0,12.65,0Zm5.46,12.85L13,22.1a.39.39,0,0,1-.68,0L7.2,12.85A6.2,6.2,0,1,1,18.85,9.91,6.28,6.28,0,0,1,18.11,12.85Z" />
+                                                </g>
+                                            </g>
+                                        </svg>
+                                    </button>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </menu>
+            </div>
             <div id="slideshow">
-                <div></div>
+                <div><img src="assets/imgs/photos/casa1.jpg" alt="Foto da casa 1" style="max-width: 750px;"></div>
+                <div><img src="assets/imgs/photos/casa2.jpg" alt="Foto da casa 2" style="max-width: 333px;"></div>
+                <div><img src="assets/imgs/photos/casa1.jpg" alt="Foto da casa 1" style="max-width: 750px;"></div>
+                <div><img src="assets/imgs/photos/casa3.jpg" alt="Foto da casa 3" style="max-width: 333px;"></div>
+                <div><img src="assets/imgs/photos/casa2.jpg" alt="Foto da casa 2" style="max-width: 333px;"></div>
+                <div><img src="assets/imgs/photos/casa3.jpg" alt="Foto da casa 3" style="max-width: 333px;"></div>
             </div>
         </section>
 

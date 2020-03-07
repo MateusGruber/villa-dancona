@@ -69,6 +69,16 @@ $extra: 1440px;
 }
 
 //Animation
+@keyframes pointdown {
+    0% {
+        transform: translateY(0%);
+    }
+
+    50% {
+        transform: translateY(100%);
+    }
+}
+
 @keyframes wave {
     0% {
         -webkit-transform: translateX(-5%);
@@ -358,6 +368,8 @@ main {
                     img {
                         max-width: 30px;
                         cursor: pointer;
+                        transition: ease-in-out;
+                        animation: pointdown 1s infinite;
                     }
                 }
             }
@@ -615,6 +627,52 @@ main {
 
                 img {
                     width: 100%;
+                }
+            }
+        }
+    }
+
+    #photos {
+        overflow: hidden;
+        position: relative;
+        background-color: $gold;
+        width: 100%;
+        display: block;
+        padding: 12px 0;
+        max-height: 500px;
+
+        menu {
+            li {
+                color: $primary;
+
+                button {
+                    svg {
+
+                        path,
+                        circle {
+                            fill: $primary;
+                        }
+                    }
+                }
+            }
+        }
+
+        button{
+            &[data-action] {
+                display: none;
+            }
+        }
+
+        .tns-outer {
+            margin-top: -10px;
+        }
+
+        #slideshow {
+            div {
+                padding: 0 2px;
+                img {
+                    width: 100%;
+                    image-orientation: 90deg flip;
                 }
             }
         }
