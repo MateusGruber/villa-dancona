@@ -7,14 +7,15 @@ document.onreadystatechange = function () {
         document.getElementById('buon').classList.add(greetings)
         document.getElementById('greetings').innerText = greetingsMsg(greetings)
         // Parallax
-        // var scene = document.getElementById('scene');
-        // var parallaxInstance = new Parallax(scene);
+        var scene = document.getElementById('scene');
+        var parallaxInstance = new Parallax(scene);
 
         //Menu
         setMenuPosition()
         window.addEventListener('scroll', function (e) {
             setMenuPosition()
         });
+
 
         //Slider
         var slider = tns({
@@ -30,7 +31,8 @@ document.onreadystatechange = function () {
         });
 
         //Vivus
-        new Vivus('house1', {duration: 200, file: 'assets/imgs/house.svg'});
+        new Vivus('house1', { duration: 200, file: 'assets/imgs/house.svg' });
+        new Vivus('house2', { duration: 200, file: 'assets/imgs/house-white.svg' });
     }
 };
 
@@ -50,6 +52,9 @@ function setMenuPosition() {
     var $photos = document.querySelector('#photos');
     var $photosMenuL = document.querySelector('#photos menu:first-child');
     var $photosMenuR = document.querySelector('#photos menu:last-child');
+    var $contact = document.querySelector('#contact');
+    var $contactMenuL = document.querySelector('#contact menu:first-child');
+    var $contactMenuR = document.querySelector('#contact menu:last-child');
 
     var buonHeight = $buon.offsetHeight;
     var viniHeight = $vini.offsetHeight;
@@ -60,6 +65,8 @@ function setMenuPosition() {
     var laCasaOffset = $laCasa.offsetTop;
     var photosHeight = $photos.offsetHeight;
     var photosOffset = $photos.offsetTop;
+    var contactHeight = $contact.offsetHeight;
+    var contactOffset = $contact.offsetTop;
 
     $buonMenuL.setAttribute('style', 'transform: translateX(-50%) translateY(' + (window.scrollY - (buonHeight - window.innerHeight) / 2) + 'px) rotate(-90deg);')
     $buonMenuR.setAttribute('style', 'transform: translateX(-50%) translateY(' + (window.scrollY - (buonHeight - window.innerHeight) / 2) + 'px);')
@@ -71,6 +78,8 @@ function setMenuPosition() {
     $laCasaMenuR.setAttribute('style', 'transform: translateX(-50%) translateY(' + (window.scrollY - laCasaOffset - (laCasaHeight - window.innerHeight) / 2) + '' + 'px);')
     $photosMenuL.setAttribute('style', 'transform: translateX(-50%) translateY(' + (window.scrollY - photosOffset - (photosHeight - window.innerHeight) / 2) + '' + 'px) rotate(-90deg);')
     $photosMenuR.setAttribute('style', 'transform: translateX(-50%) translateY(' + (window.scrollY - photosOffset - (photosHeight - window.innerHeight) / 2) + '' + 'px);')
+    $contactMenuL.setAttribute('style', 'transform: translateX(-50%) translateY(' + (window.scrollY - contactOffset - (contactHeight - window.innerHeight) / 2) + '' + 'px) rotate(-90deg);')
+    $contactMenuR.setAttribute('style', 'transform: translateX(-50%) translateY(' + (window.scrollY - contactOffset - (contactHeight - window.innerHeight) / 2) + '' + 'px);')
 }
 
 
