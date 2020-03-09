@@ -38,6 +38,7 @@ $(document).ready(function () {
             slick.$slides.removeClass('prevSlide').removeClass('nextSlide');
         }).slick({
             slidesToShow: 1,
+            infinite: false,
             responsive: [
                 {
                     breakpoint: 768,
