@@ -3,10 +3,10 @@ $primary: rgb(40, 52, 123);
 $darkblue: #090c0e;
 $grey: #76777A;
 $gold: #B79E4B;
+$flora: #EB0045;
 
 $giorno: #7D6A33;
-$giornoColors: (
-    6: #8D7A39,
+$giornoColors: (6: #8D7A39,
     5: #B79E4A,
     4: #C4AA4F,
     3: #E2C35B,
@@ -14,8 +14,7 @@ $giornoColors: (
     1: #FFDC67);
 
 $pomeriggio: #878787;
-$pomeriggioColors: (
-    6: #9C9B9B,
+$pomeriggioColors: (6: #9C9B9B,
     5: #A9A9A9,
     4: #C2C1C1,
     3: #D8D8D8,
@@ -209,8 +208,10 @@ main {
                             font-size: inherit;
                         }
                     }
+
                     a {
                         color: inherit;
+
                         button {
                             cursor: pointer;
                             background-color: transparent;
@@ -259,14 +260,16 @@ main {
                 width: 110%;
                 margin-bottom: -8%;
                 margin-left: -15%;
-                
+
                 svg {
                     @include extralarge() {
                         animation: wave 6s ease-in-out -1s infinite alternate forwards;
                     }
+
                     @include large() {
                         animation: wave 6s ease-in-out -1s infinite alternate forwards;
                     }
+
                     width: 170%;
                     margin-left: -40%;
                 }
@@ -274,12 +277,13 @@ main {
                 &.wave1 {
                     z-index: 7;
                     position: absolute !important;
-                    
+
                     svg {
                         animation-direction: alternate-reverse;
                         position: absolute;
                         bottom: 0;
                         margin-bottom: -10%;
+
                         path {
                             fill: #4A64B8;
                         }
@@ -299,7 +303,7 @@ main {
                 &.wave3 {
                     z-index: 5;
 
-                    
+
                     svg {
                         animation-direction: alternate-reverse;
                         position: absolute;
@@ -328,7 +332,7 @@ main {
                 &.wave6 {
                     z-index: 2;
 
-                    
+
                     svg {
                         animation-direction: alternate-reverse;
                         position: absolute;
@@ -389,6 +393,7 @@ main {
 
         &.giorno {
             background-color: $giorno;
+
             #scene {
                 .wave {
                     @for $i from 1 through 6 {
@@ -408,6 +413,7 @@ main {
 
         &.pomeriggio {
             background-color: $pomeriggio;
+
             #scene {
                 .wave {
                     @for $i from 1 through 6 {
@@ -480,6 +486,140 @@ main {
 
                     &.il-pisani {
                         background-image: url(../imgs/il-pisani.jpg);
+                    }
+                }
+            }
+        }
+    }
+
+    #vinis {
+        position: relative;
+        background-color: $grey;
+        min-height: 1060px;
+
+        .slick-list {
+            overflow: inherit;
+
+            .slick-slide {
+                outline: none;
+                transition: ease-in-out 300ms;
+
+                &:not(.slick-current) {
+                    .wine-description {
+                        .description {
+                            opacity: 0;
+                        }
+                    }
+                    .buy {
+                        opacity: 0;
+                    }
+                }
+
+                &.slick-active {
+                    .wine-description {
+                        > img {
+                            transform: scale(1.5);
+                        }
+                    }
+                }
+
+                &.prevSlide {
+                    .wine-description {
+                        img {
+                            transform: translateX(70%);
+                        }
+                    }
+                }
+
+                &.nextSlide {
+                    .wine-description {
+                        img {
+                            transform: translateX(-280%);
+                        }
+                    }
+                }
+
+                .wine-description {
+                    display: flex;
+                    justify-content: space-between;
+
+                    strong {
+                        font-weight: bold;
+                    }
+
+                    .description {
+                        color: white;
+                        max-width: 490px;
+                        padding-top: 200px;
+                        opacity: 1;
+                        transition: ease-in-out 300ms;
+
+                        .title {
+                            display: flex;
+                            text-transform: uppercase;
+
+                            h3 {
+                                letter-spacing: normal;
+                                font-size: 3em;
+                            }
+
+                            img {
+                                margin-right: 40px;
+                            }
+                        }
+
+                        .text {
+                            display: flex;
+                            margin-top: 60px;
+
+                            div {
+                                &:last-child {
+                                    margin-left: 50px;
+                                }
+
+                                p {
+                                    font-size: 13px;
+                                }
+                            }
+
+                            img {
+                                margin-right: 60px;
+                            }
+                        }
+                    }
+
+                    >img {
+                        max-width: 205px;
+                        max-height: 677px;
+                        display: block;
+                        transition: ease-in-out 300ms;
+                    }
+
+                    .buy {
+                        max-width: 100px;
+                        a {
+                            color: $flora;
+                            transform: rotate(-90deg) translateX(-520px);
+                            display: block;
+                            margin: 0 auto;
+                            font-family: 'BommerSans', Arial, Helvetica, sans-serif;
+                            text-decoration: none;
+                            font-size: 97px;
+
+                            &::before {
+                                content: '';
+                                width: 50px;
+                                height: 15px;
+                                display: block;
+                                position: absolute;
+                                transform: rotate(90deg);
+                                background-image: url(../imgs/evino.png);
+                                background-repeat: no-repeat;
+                                background-position: center;
+                                top: 10px;
+                                right: 20px;
+                            }
+                        }
                     }
                 }
             }
@@ -676,7 +816,7 @@ main {
             }
         }
 
-        button{
+        button {
             &[data-action] {
                 display: none;
             }
@@ -689,6 +829,7 @@ main {
         #slideshow {
             div {
                 padding: 0 2px;
+
                 img {
                     width: 100%;
                     image-orientation: 90deg flip;
@@ -765,5 +906,29 @@ main {
     .pixelcompare-left-arrow,
     .pixelcompare-right-arrow {
         display: none;
+    }
+}
+
+.slick-arrow {
+    text-indent: 9999px;
+    width: 26px;
+    height: 50px;
+    border: none;
+    background-image: url(../imgs/arrow.svg);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+    z-index: 9;
+
+    &.slick-prev {
+        transform: rotate(90deg);
+        left: 0;
+    }
+    &.slick-next {
+        transform: rotate(-90deg);
+        right: 0;
     }
 }
