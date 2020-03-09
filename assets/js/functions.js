@@ -39,6 +39,8 @@ $(document).ready(function () {
         }).slick({
             slidesToShow: 1,
             infinite: false,
+            prevArrow: '<button type="button" class="slick-prev"></button>',
+            nextArrow: '<button type="button" class="slick-next"></button>'
             responsive: [
                 {
                     breakpoint: 768,
