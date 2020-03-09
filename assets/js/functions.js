@@ -1,40 +1,82 @@
-document.onreadystatechange = function () {
-    if (document.readyState === 'complete') {
-        //AOS
-        AOS.init();
+$(document).ready(function () {
 
-        var greetings = getGreetingTime(new Date());
-        document.getElementById('buon').classList.add(greetings)
-        document.getElementById('greetings').innerText = greetingsMsg(greetings)
-        // Parallax
-        var scene = document.getElementById('scene');
-        var parallaxInstance = new Parallax(scene);
+    var greetings = getGreetingTime(new Date());
+    document.getElementById('buon').classList.add(greetings)
+    document.getElementById('greetings').innerText = greetingsMsg(greetings)
 
-        //Menu
+    //Sliders
+    var slider = tns({
+        container: '#slideshow',
+        items: 3,
+        slideBy: 'page',
+        mouseDrag: true,
+        controls: false,
+        nav: false,
+        autoWidth: true,
+        autoplayTimeout: 5000,
+        center: true,
+    });
+
+    $('#wine-carousel').on('afterChange init', function (event, slick, direction) {
+        // console.log('afterChange/init', event, slick, slick.$slides);
+        // remove all prev/next
+        slick.$slides.removeClass('prevSlide').removeClass('nextSlide');
+
+        // find current slide
+        for (var i = 0; i < slick.$slides.length; i++) {
+            var $slide = $(slick.$slides[i]);
+            if ($slide.hasClass('slick-current')) {
+                // update DOM siblings
+                $slide.prev().addClass('prevSlide');
+                $slide.next().addClass('nextSlide');
+                break;
+            }
+        }
+    }).on('beforeChange', function (event, slick) {
+            // optional, but cleaner maybe
+            // remove all prev/next
+            slick.$slides.removeClass('prevSlide').removeClass('nextSlide');
+        }).slick({
+            slidesToShow: 1,
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        arrows: false,
+                        centerMode: true,
+                        centerPadding: '40px',
+                        slidesToShow: 1
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        arrows: false,
+                        centerMode: true,
+                        centerPadding: '40px',
+                        slidesToShow: 1
+                    }
+                }
+            ]
+        });
+
+    //AOS
+    AOS.init();
+
+    // Parallax
+    var scene = document.getElementById('scene');
+    var parallaxInstance = new Parallax(scene);
+
+    //Menu
+    setMenuPosition()
+    window.addEventListener('scroll', function (e) {
         setMenuPosition()
-        window.addEventListener('scroll', function (e) {
-            setMenuPosition()
-        });
+    });
 
-
-        //Slider
-        var slider = tns({
-            container: '#slideshow',
-            items: 3,
-            slideBy: 'page',
-            mouseDrag: true,
-            controls: false,
-            nav: false,
-            autoWidth: true,
-            autoplayTimeout: 5000,
-            center: true,
-        });
-
-        //Vivus
-        new Vivus('house1', { duration: 200, file: 'assets/imgs/house.svg' });
-        new Vivus('house2', { duration: 200, file: 'assets/imgs/house-white.svg' });
-    }
-};
+    //Vivus
+    new Vivus('house1', { duration: 200, file: 'assets/imgs/house.svg' });
+    new Vivus('house2', { duration: 200, file: 'assets/imgs/house-white.svg' });
+})
 
 function setMenuPosition() {
     var $buon = document.querySelector('#buon');
