@@ -519,6 +519,7 @@ main {
                     .wine-description {
                         > img {
                             transform: scale(1.5);
+                            margin-top: 0;
                         }
                     }
                 }
@@ -593,6 +594,7 @@ main {
                         max-height: 677px;
                         display: block;
                         transition: ease-in-out 300ms;
+                        margin-top: 170px;
                     }
 
                     .buy {
