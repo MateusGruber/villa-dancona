@@ -40,7 +40,7 @@ $(document).ready(function () {
             slidesToShow: 1,
             infinite: false,
             prevArrow: '<button type="button" class="slick-prev"></button>',
-            nextArrow: '<button type="button" class="slick-next"></button>'
+            nextArrow: '<button type="button" class="slick-next"></button>',
             responsive: [
                 {
                     breakpoint: 768,
