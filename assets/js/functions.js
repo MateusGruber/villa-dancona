@@ -33,35 +33,35 @@ $(document).ready(function () {
             }
         }
     }).on('beforeChange', function (event, slick) {
-            // optional, but cleaner maybe
-            // remove all prev/next
-            slick.$slides.removeClass('prevSlide').removeClass('nextSlide');
-        }).slick({
-            slidesToShow: 1,
-            infinite: false,
-            prevArrow: '<button type="button" class="slick-prev"></button>',
-            nextArrow: '<button type="button" class="slick-next"></button>',
-            responsive: [
-                {
-                    breakpoint: 768,
-                    settings: {
-                        arrows: false,
-                        centerMode: true,
-                        centerPadding: '40px',
-                        slidesToShow: 1
-                    }
-                },
-                {
-                    breakpoint: 480,
-                    settings: {
-                        arrows: false,
-                        centerMode: true,
-                        centerPadding: '40px',
-                        slidesToShow: 1
-                    }
+        // optional, but cleaner maybe
+        // remove all prev/next
+        slick.$slides.removeClass('prevSlide').removeClass('nextSlide');
+    }).slick({
+        slidesToShow: 1,
+        infinite: false,
+        prevArrow: '<button type="button" class="slick-prev"></button>',
+        nextArrow: '<button type="button" class="slick-next"></button>',
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    arrows: false,
+                    centerMode: true,
+                    centerPadding: '40px',
+                    slidesToShow: 1
                 }
-            ]
-        });
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    arrows: false,
+                    centerMode: true,
+                    centerPadding: '40px',
+                    slidesToShow: 1
+                }
+            }
+        ]
+    });
 
     //AOS
     AOS.init();
@@ -79,7 +79,52 @@ $(document).ready(function () {
     //Vivus
     new Vivus('house1', { duration: 200, file: 'assets/imgs/house.svg' });
     new Vivus('house2', { duration: 200, file: 'assets/imgs/house-white.svg' });
+
+    //House parts
+    $hleft = document.getElementById('hleft');
+    $hleftContent = document.querySelector('.hleft-content');
+    $hcenter = document.getElementById('hcenter');
+    $hcenterContent = document.querySelector('.hcenter-content');
+    $hright = document.getElementById('hright');
+    $hrightContent = document.querySelector('.hright-content');
+
+    $hleft.addEventListener('mouseover', function (e) {
+        $hcenter.classList.add('outhover')
+        $hcenterContent.classList.add('outhover')
+        $hright.classList.add('outhover')
+        $hrightContent.classList.add('outhover')
+    })
+    $hcenter.addEventListener('mouseover', function (e) {
+        $hleft.classList.add('outhover')
+        $hrightContent.classList.add('outhover')
+        $hleft.classList.add('outhover')
+        $hrightContent.classList.add('outhover')
+    })
+    $hright.addEventListener('mouseover', function (e) {
+        $hcenter.classList.add('outhover')
+        $hleftContent.classList.add('outhover')
+        $hcenter.classList.add('outhover')
+        $hleftContent.classList.add('outhover')
+    })
+    $hleft.addEventListener('mouseout', function () {
+        removeHousePartClasses()
+    })
+    $hcenter.addEventListener('mouseout', function () {
+        removeHousePartClasses()
+    })
+    $hright.addEventListener('mouseout', function () {
+        removeHousePartClasses()
+    })
 })
+
+function removeHousePartClasses() {
+    document.getElementById('hleft').classList.remove('outhover');
+    document.getElementById('hcenter').classList.remove('outhover');
+    document.getElementById('hright').classList.remove('outhover');
+    document.querySelector('.hleft-content').classList.remove('outhover');
+    document.querySelector('.hcenter-content').classList.remove('outhover');
+    document.querySelector('.hright-content').classList.remove('outhover');
+}
 
 function setMenuPosition() {
     var $buon = document.querySelector('#buon');
