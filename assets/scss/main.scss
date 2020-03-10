@@ -107,6 +107,15 @@ $extra: 1440px;
     height: 31px;
     background-image: url(../imgs/division.png);
     background-size: 31px;
+    background-position: center;
+}
+
+.bluedivision {
+    height: 22px;
+    background-image: url(../imgs/bluedivision.png);
+    background-size: 22px;
+    width: 100%;
+    background-position: center;
 }
 
 :root {
@@ -116,6 +125,10 @@ $extra: 1440px;
 html {
     overflow: auto;
     scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 body {
@@ -157,13 +170,13 @@ main {
             // mix-blend-mode: difference;
             position: absolute;
             top: 50%;
-            left: 3%;
+            left: 30px;
             z-index: 10;
 
             &:last-child {
                 top: 50%;
                 left: auto;
-                right: 3%;
+                right: 20px;
 
                 ul {
                     display: flex;
@@ -510,6 +523,7 @@ main {
                             opacity: 0;
                         }
                     }
+
                     .buy {
                         opacity: 0;
                     }
@@ -517,7 +531,7 @@ main {
 
                 &.slick-active {
                     .wine-description {
-                        > img {
+                        >img {
                             transform: scale(1.5);
                             margin-top: 0;
                         }
@@ -599,6 +613,7 @@ main {
 
                     .buy {
                         max-width: 100px;
+
                         a {
                             color: $flora;
                             transform: rotate(-90deg) translateX(-520px);
@@ -790,6 +805,138 @@ main {
                     width: 100%;
                 }
             }
+
+            #house-parts {
+                margin-top: 5.625rem;
+
+                .outhover {
+                    opacity: 0.5;
+                }
+
+                .top-side-texts {
+                    display: flex;
+                    margin-bottom: 3.125rem;
+
+                    div {
+                        position: relative;
+                        width: 50%;
+
+                        p {
+                            color: $primary;
+                            transition: ease-in-out 300ms;
+
+                            &::before,
+                            &::after {
+                                content: '';
+                                border-color: $primary;
+                                display: block;
+                                border: none;
+                                position: absolute;
+                                top: 1.875rem;
+                                right: 0.625rem;
+                                z-index: -1;
+                            }
+
+                            &::before {
+                                width: 40%;
+                                border-top-style: solid;
+                            }
+
+                            &::after {
+                                height: 7.8125rem;
+                                border-right-style: solid;
+                            }
+                        }
+
+                        &:last-child {
+                            p {
+                                margin: 0 0 0 auto;
+
+                                &::before,
+                                &::after {
+                                    border: none;
+                                    right: 6.25rem;
+                                    top: auto;
+                                    bottom: -15rem;
+                                    z-index: -1;
+                                }
+
+                                &::before {
+                                    height: 13.3125rem;
+                                    border-right-style: solid;
+                                }
+
+                                &::after {
+                                    width: 2.5rem;
+                                    border-bottom-style: solid;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .bottom-side-texts {
+                    display: flex;
+                    margin-top: 1.25rem;
+
+                    div {
+                        position: relative;
+                        width: 50%;
+
+                        p {
+                            color: $primary;
+                            transition: ease-in-out 300ms;
+
+                            &::before,
+                            &::after {
+                                content: '';
+                                border-color: $primary;
+                                display: block;
+                                border: none;
+                                position: absolute;
+                                top: -100%;
+                                left: 0;
+                                z-index: -1;
+                            }
+
+                            &::before {
+                                height: 8.75rem;
+                                border-left-style: solid;
+                            }
+
+                            &::after {
+                                width: 8.5rem;
+                                border-bottom-style: solid;
+                            }
+                        }
+                    }
+                }
+
+                svg {
+                    overflow: inherit;
+                    max-width: 53.125rem;
+                    margin: 0 auto;
+                    display: block;
+
+                    #hleft,
+                    #hcenter,
+                    #hright {
+                        transition: ease-in-out 300ms;
+
+                        &:hover {
+                            transform: scale(1.05) translateX(-2%);
+
+                            &#hright {
+                                transform: scale(1.05) translate(-4%, -2%);
+                            }
+
+                            &#hleft {
+                                transform: scale(1.05) translate(-1%, -2%);
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -847,7 +994,6 @@ main {
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
-        min-height: 850px;
 
         menu {
             li {
@@ -862,6 +1008,51 @@ main {
                         }
                     }
                 }
+            }
+        }
+
+        .contact-container {
+            display: flex;
+
+            >div {
+                width: 50%;
+
+                &:last-child {
+                    padding: 9.375rem 0;
+
+                    .address {
+                        background-color: white;
+                        border: 0.125rem solid $primary;
+                        padding: 0.25rem;
+                        max-width: 14.375rem;
+                        margin-left: 4.375rem;
+
+                        .address-content {
+                            padding: 3.125rem 1.25rem;
+                            color: $primary;
+
+                            img {
+                                display: block;
+                                margin-bottom: 1.875rem;
+                            }
+
+                            h4 {
+                                letter-spacing: normal;
+                                font-family: 1.375rem;
+                                margin-bottom: 1.25rem;
+                            }
+
+                            span {
+                                font-family: 'BommerSans', Arial, Helvetica, sans-serif;
+                                font-size: 1rem;
+                                display: block;
+                                font-weight: lighter;
+                                margin-bottom: 6.25rem;
+                            }
+                        }
+                    }
+                }
+
             }
         }
     }
@@ -929,6 +1120,7 @@ main {
         transform: rotate(90deg);
         left: 0;
     }
+
     &.slick-next {
         transform: rotate(-90deg);
         right: 0;
