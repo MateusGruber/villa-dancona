@@ -3,6 +3,7 @@
     src: url("../fonts/BommerSans-Bold.otf") format("opentype");
     font-weight: 500;
     font-style: bold;
+    font-display: swap
 }
 
 @font-face {
@@ -10,6 +11,7 @@
     src: url("../fonts/BommerSans-Light.otf") format("opentype");
     font-weight: 300;
     font-style: lighter;
+    font-display: swap
 }
 
 @font-face {
@@ -17,4 +19,5 @@
     src: url("../fonts/MyriadPro-Regular.otf") format("opentype");
     font-weight: 500;
     font-style: normal;
+    font-display: swap
 }
