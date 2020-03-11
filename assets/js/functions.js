@@ -76,6 +76,12 @@ $(document).ready(function () {
         setMenuPosition()
     });
 
+    document.querySelectorAll('#menuToggle #menu li a').forEach(function($link) {
+        $link.addEventListener('click', function() {
+            document.querySelector('#menuToggle input[type=checkbox]').checked = false;
+        })
+    })
+
     //Vivus
     new Vivus('house1', { duration: 200, file: 'assets/imgs/house.svg' });
     new Vivus('house2', { duration: 200, file: 'assets/imgs/house-white.svg' });
