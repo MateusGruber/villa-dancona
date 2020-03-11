@@ -167,7 +167,10 @@ main {
 
     //Menu mobile
     #menuToggle {
-        display: block;
+        display: none;
+        @include small() {
+            display: block;
+        }
         position: fixed;
         top: 20px;
         left: 20px;
@@ -268,7 +271,7 @@ main {
     }
 
     #menuToggle input:checked~ul {
-        transform: none;
+        transform: none !important;
     }
 
     .onclick-menu:focus {
