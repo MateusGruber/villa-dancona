@@ -483,7 +483,9 @@ main {
 
                 &.wave6 {
                     z-index: 2;
-
+                    @include small() {
+                        margin-bottom: 30px;
+                    }
 
                     svg {
                         animation-direction: alternate-reverse;
