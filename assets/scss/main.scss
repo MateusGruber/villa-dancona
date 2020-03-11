@@ -419,6 +419,11 @@ main {
 
                     width: 170%;
                     margin-left: -40%;
+
+                    @include small() {
+                        width: 270%;
+                        margin-left: -100%;
+                    }
                 }
 
                 &.wave1 {
