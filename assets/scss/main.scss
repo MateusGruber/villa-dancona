@@ -166,6 +166,11 @@ main {
     overflow: hidden;
 
     .menu-left-right {
+
+        @include small() {
+            display: none;
+        }
+
         menu {
             // mix-blend-mode: difference;
             position: absolute;
@@ -373,6 +378,10 @@ main {
                 transform: translate(-50%, -50%);
                 max-width: 900px;
                 position: absolute;
+
+                @media screen and (max-width: 1100px) {
+                    max-width: 75%;
+                }
             }
 
             h3 {
@@ -682,7 +691,7 @@ main {
             #house2 {
                 position: absolute;
                 top: 200px;
-                right: 0;
+                right: 20px;
             }
 
             .section-title {
@@ -737,6 +746,10 @@ main {
         .container {
             padding: 200px 15px;
 
+            @include small() {
+                padding: 50px 15px;
+            }
+
             .top-logo {
                 svg {
                     width: 100%;
@@ -768,13 +781,23 @@ main {
                 .section-title {
                     height: 100%;
                     width: 40%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-right: 1.25rem;
 
                     h2 {
                         font-size: 15.875em;
                         line-height: 14rem;
-                        transform: translateY(290px) rotate(-90deg);
+                        transform: translateY(11.25rem) rotate(-90deg);
                         color: $primary;
                         white-space: nowrap;
+
+                        @media screen and (max-width: 952px) {
+                            font-size: 12rem;
+                            line-height: 10rem;
+                            transform: translateY(30rem) rotate(-90deg);
+                        }
                     }
                 }
 
@@ -794,7 +817,95 @@ main {
                         font-weight: bold;
                         margin-bottom: 1.6rem;
                     }
+
+                    img {
+                        width: 100%;
+                    }
                 }
+
+                @include small() {
+                    flex-wrap: wrap;
+
+                    >div {
+
+                        &.house-text {
+                            order: 2;
+                            width: calc(50% - 10px);
+                            margin-right: 0.625rem;
+                        }
+
+                        &.section-title {
+                            order: 1;
+                            width: 100%;
+                            display: block;
+                            margin: 0;
+
+                            h2 {
+                                font-size: 8em;
+                                line-height: 7rem;
+                                transform: translate(0) rotate(0);
+                            }
+                        }
+
+                        &.house-painting {
+                            order: 3;
+                            width: calc(50% - 10px);
+                            justify-content: flex-start;
+                            margin-top: 7.5rem;
+                            margin-left: 0.625rem;
+
+                            p {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+
+                @include extraSmall() {
+                    >div {
+                        &.house-text {
+                            order: 2;
+                            width: 100%;
+                            margin-right: 0;
+
+                            .top-logo {
+                                svg {
+                                    margin-top: 5rem;
+                                }
+                            }
+
+                            p {
+                                max-width: 100%;
+                                margin-top: 1.875rem;
+                            }
+
+                            #house1 {
+                                svg {
+                                    margin: 3.125rem auto 0;
+                                    display: block;
+                                }
+                            }
+                        }
+
+                        &.section-title {
+                            h2 {
+                                font-size: 6rem;
+                                line-height: 5rem;
+                            }
+                        }
+
+                        &.house-painting {
+                            width: 100%;
+                            margin: 3.125rem 0 0;
+
+                            img {
+                                width: calc(100% + 40px);
+                                margin-left: -20px;
+                            }
+                        }
+                    }
+                }
+
             }
 
             #vecchio-nuovo {
@@ -1020,12 +1131,20 @@ main {
                 &:last-child {
                     padding: 9.375rem 0;
 
+                    @include extraSmall() {
+                        padding: 3rem 0;
+                    }
+
                     .address {
                         background-color: white;
                         border: 0.125rem solid $primary;
                         padding: 0.25rem;
                         max-width: 14.375rem;
                         margin-left: 4.375rem;
+
+                        @include extraSmall() {
+                            margin-left: 0;
+                        }
 
                         .address-content {
                             padding: 3.125rem 1.25rem;
