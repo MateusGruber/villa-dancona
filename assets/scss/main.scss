@@ -154,6 +154,10 @@ body {
         overflow: hidden;
     }
 
+    strong {
+        font-weight: bold;
+    }
+
     .container {
         width: 100%;
         max-width: 1200px;
@@ -657,7 +661,6 @@ main {
     #vinis {
         position: relative;
         background-color: $grey;
-        min-height: 1060px;
 
         .slick-list {
             overflow: inherit;
@@ -676,13 +679,17 @@ main {
                     .buy {
                         opacity: 0;
                     }
+
+                    .wine-name {
+                        opacity: 0;
+                        bottom: 0;
+                    }
                 }
 
                 &.slick-active {
                     .wine-description {
                         >img {
-                            transform: scale(1.5);
-                            margin-top: 0;
+                            transform: translateY(0) scale(1.5);
                         }
                     }
                 }
@@ -690,7 +697,7 @@ main {
                 &.prevSlide {
                     .wine-description {
                         img {
-                            transform: translateX(70%);
+                            transform: translateX(70%) translateY(170px);
                         }
                     }
                 }
@@ -698,7 +705,7 @@ main {
                 &.nextSlide {
                     .wine-description {
                         img {
-                            transform: translateX(-280%);
+                            transform: translateX(-280%) translateY(170px);
                         }
                     }
                 }
@@ -706,6 +713,7 @@ main {
                 .wine-description {
                     display: flex;
                     justify-content: space-between;
+                    margin-bottom: 340px;
 
                     strong {
                         font-weight: bold;
@@ -757,7 +765,7 @@ main {
                         max-height: 677px;
                         display: block;
                         transition: ease-in-out 300ms;
-                        margin-top: 170px;
+                        transform: translateY(170px);
                     }
 
                     .buy {
@@ -788,6 +796,20 @@ main {
                         }
                     }
                 }
+                .wine-name {
+                    position: absolute;
+                    bottom: -15px;
+                    left: 0;
+                    right: 0;
+                    z-index: -1;
+                    transition: ease-in-out 300ms;
+                    img {
+                        max-width: 64.375rem;
+                        width: 100%;
+                        display: block;
+                        margin: 0 auto;
+                    }
+                }
             }
         }
     }
@@ -806,44 +828,88 @@ main {
             padding: 200px 15px;
             position: relative;
 
-            .top-logo {
-                svg {
-                    width: 100%;
-                    max-width: 250px;
+            @include small() {
+                padding: 5rem 15px;
+            }
 
-                    path {
-                        fill: white;
+            .nostro-vino-content {
+
+                @include small() {
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    div {
+                        width: 100%;
                     }
                 }
-            }
 
-            .wine-details {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-
-                p {
-                    margin-left: -12.5rem;
-                    margin-top: 5em;
+                .top-logo {
+                    order: 1;
+                    svg {
+                        width: 100%;
+                        max-width: 250px;
+    
+                        path {
+                            fill: white;
+                        }
+                    }
                 }
-            }
+    
+                .wine-details {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    order: 2;
+    
+                    p {
+                        margin-left: -12.5rem;
+                        margin-top: 5em;
 
-            #house2 {
-                position: absolute;
-                top: 200px;
-                right: 20px;
-            }
-
-            .section-title {
-                h2 {
-                    font-size: 15.7rem;
-                    line-height: 11.5rem;
-                    color: $gold;
-                    margin-top: -7rem;
-
-                    span {
-                        line-height: 16.4rem;
-                        display: inline-block;
+                        @include small() {
+                            margin-left: 0;
+                            margin-bottom: 5rem;
+                            margin-top: 3em;
+                            max-width: 100%;
+                        }
+                    }
+                }
+    
+                #house2 {
+                    order: 3;
+                    position: absolute;
+                    top: 200px;
+                    right: 20px;
+    
+                    @include small() {
+                        display: none;
+                    }
+                }
+    
+                .section-title {
+                    @include small() {
+                        order: 0;
+                    }
+                    h2 {
+                        font-size: 15.7rem;
+                        line-height: 11.5rem;
+                        color: $gold;
+                        margin-top: -7rem;
+    
+                        @include small() {
+                            font-size: 6rem;
+                            line-height: 5rem;
+                            margin-top: 0;
+                            margin-bottom: 5rem;
+                        }
+    
+                        span {
+                            line-height: 16.4rem;
+    
+                            @include small() {
+                                line-height: 5rem;
+                            }
+                            display: inline-block;
+                        }
                     }
                 }
             }
@@ -857,6 +923,7 @@ main {
                 svg {
                     max-width: 17.8rem;
                     width: 100%;
+
                 }
             }
         }
@@ -893,7 +960,7 @@ main {
             .top-logo {
                 svg {
                     width: 100%;
-                    max-width: 250px;
+                    max-width: 15.625rem;
                 }
             }
 
@@ -908,35 +975,45 @@ main {
 
                 .house-text {
                     p {
-                        margin-top: 140px;
+                        margin-top: 8.75rem;
                         color: $primary;
                     }
 
-                    svg {
-                        margin-top: 120px;
-                        max-width: 248px;
+                    #house1 {
+                        svg {
+                            margin-top: 7.5rem;
+                            max-width: 15.5rem;
+                        }
                     }
                 }
 
                 .section-title {
-                    height: 100%;
                     width: 40%;
                     display: flex;
-                    align-items: center;
+                    align-items: flex-end;
                     justify-content: center;
                     margin-right: 1.25rem;
 
                     h2 {
                         font-size: 15.875em;
                         line-height: 14rem;
-                        transform: translateY(11.25rem) rotate(-90deg);
+                        transform: rotate(-90deg);
                         color: $primary;
                         white-space: nowrap;
+                        margin-bottom: 10.9375rem;
 
                         @media screen and (max-width: 952px) {
                             font-size: 12rem;
                             line-height: 10rem;
                             transform: translateY(30rem) rotate(-90deg);
+                        }
+
+                        @include small() {
+                            margin-bottom: 5rem;
+                        }
+
+                        @include extraSmall() {
+                            margin-bottom: 0;
                         }
                     }
                 }
@@ -1059,6 +1136,20 @@ main {
 
             #house-parts {
                 margin-top: 5.625rem;
+
+                .house-parts-title {
+                    p {
+                        color: $primary;
+                        font-size: 2em;
+                        line-height: 3em;
+                        max-width: 100%;
+                        margin-bottom: 0.9375rem;
+
+                        @include small() {
+                            line-height: normal;
+                        }
+                    }
+                }
 
                 .outhover {
                     opacity: 0.5;
@@ -1232,7 +1323,23 @@ main {
 
                 img {
                     width: 100%;
-                    image-orientation: 90deg flip;
+
+                    &.vertical-img {
+                        max-width: 315px;
+                        @include small() {
+                            width: auto;
+                            max-height: 231px;
+                        }
+                    }
+
+                    &.horizontal-img {
+                        max-width: 708px;
+                        @include small() {
+                            max-width: 347px;
+                        }
+                    }
+
+                    
                 }
             }
         }
@@ -1372,7 +1479,7 @@ main {
     background-position: center;
     cursor: pointer;
     position: absolute;
-    bottom: 10px;
+    bottom: 50px;
     z-index: 9;
 
     &.slick-prev {
