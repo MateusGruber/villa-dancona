@@ -17,10 +17,11 @@ $(document).ready(function () {
         center: true,
     });
 
-    $('#wine-carousel').on('afterChange init', function (event, slick, direction) {
+    $('#wine-carousel').on('afterChange init', function (event, slick, index) {
         // console.log('afterChange/init', event, slick, slick.$slides);
         // remove all prev/next
         slick.$slides.removeClass('prevSlide').removeClass('nextSlide');
+
 
         // find current slide
         for (var i = 0; i < slick.$slides.length; i++) {
@@ -32,6 +33,17 @@ $(document).ready(function () {
                 break;
             }
         }
+
+        if(index === 2) {
+            $('.slick-next').css('opacity', '0')
+        } else if (!index || index === 0) {
+            $('.slick-prev').css('opacity', '0')
+        }
+        else {
+            $('.slick-next').css('opacity', '1')
+            $('.slick-prev').css('opacity', '1')
+        }
+
     }).on('beforeChange', function (event, slick) {
         // optional, but cleaner maybe
         // remove all prev/next
@@ -45,7 +57,6 @@ $(document).ready(function () {
             {
                 breakpoint: 768,
                 settings: {
-                    arrows: false,
                     centerMode: true,
                     centerPadding: '40px',
                     slidesToShow: 1
@@ -54,9 +65,8 @@ $(document).ready(function () {
             {
                 breakpoint: 480,
                 settings: {
-                    arrows: false,
                     centerMode: true,
-                    centerPadding: '40px',
+                    centerPadding: '',
                     slidesToShow: 1
                 }
             }

@@ -172,9 +172,11 @@ main {
     //Menu mobile
     #menuToggle {
         display: none;
+
         @include small() {
             display: block;
         }
+
         position: fixed;
         top: 20px;
         left: 20px;
@@ -491,6 +493,7 @@ main {
 
                 &.wave6 {
                     z-index: 2;
+
                     @include small() {
                         margin-bottom: 30px;
                     }
@@ -686,26 +689,28 @@ main {
                     }
                 }
 
-                &.slick-active {
-                    .wine-description {
-                        >img {
-                            transform: translateY(0) scale(1.5);
+                @include medium() {
+                    &.slick-active {
+                        .wine-description {
+                            .bottle-container {
+                                transform: translateY(0) scale(1.5);
+                            }
                         }
                     }
-                }
 
-                &.prevSlide {
-                    .wine-description {
-                        img {
-                            transform: translateX(70%) translateY(170px);
+                    &.prevSlide {
+                        .wine-description {
+                            .bottle-container {
+                                transform: translateX(70%) translateY(170px);
+                            }
                         }
                     }
-                }
 
-                &.nextSlide {
-                    .wine-description {
-                        img {
-                            transform: translateX(-280%) translateY(170px);
+                    &.nextSlide {
+                        .wine-description {
+                            .bottle-container {
+                                transform: translateX(-280%) translateY(170px);
+                            }
                         }
                     }
                 }
@@ -713,7 +718,12 @@ main {
                 .wine-description {
                     display: flex;
                     justify-content: space-between;
-                    margin-bottom: 340px;
+                    margin-bottom: 240px;
+
+                    @include small() {
+                        flex-wrap: wrap;
+                        margin-bottom: 0;
+                    }
 
                     strong {
                         font-weight: bold;
@@ -726,17 +736,53 @@ main {
                         opacity: 1;
                         transition: ease-in-out 300ms;
 
+                        @include small() {
+                            padding-top: 5rem;
+                            max-width: 100%;
+                            width: 100%;
+                        }
+
                         .title {
                             display: flex;
                             text-transform: uppercase;
+                            @include small() {
+                                order: 0;
+                            }
 
                             h3 {
                                 letter-spacing: normal;
                                 font-size: 3em;
+                                white-space: nowrap;
                             }
 
                             img {
                                 margin-right: 40px;
+                                width: 39px;
+                                height: 104px;
+                            }
+                        }
+
+                        .bottle-area-mobile {
+                            display: none;
+                            @include small() {
+                                display: flex;
+                                flex-wrap: wrap;
+                                width: 100%;
+                                order: 1;
+                                margin-top: 30px;
+                                align-items: center;
+
+                                div {
+                                    &:first-child {
+                                        width: 70%;
+                                        img {
+                                            display: block;
+                                            width: 100%;
+                                            max-width: 130px;
+                                            margin: 0 auto;
+                                        }
+                                    }
+                                }
                             }
                         }
 
@@ -744,32 +790,89 @@ main {
                             display: flex;
                             margin-top: 60px;
 
+                            @include small() {
+                                order: 2;
+                            }
+
                             div {
+
+                                &:nth-child(2) {
+                                    @include small() {
+                                        width: 100%;
+                                    }
+                                }
+
                                 &:last-child {
                                     margin-left: 50px;
+                                    
+                                    @include small() {
+                                        display: none;
+                                    }
                                 }
 
                                 p {
                                     font-size: 13px;
+
+                                    &.flora-txt {
+                                        margin-bottom: 110px;
+                                    
+                                        @include small() {
+                                            margin-bottom: 0;
+                                        }
+                                    }
+                                    
+                                    &.il-pisani-txt {
+                                        margin-bottom: 45px;
+                                    
+                                        @include small() {
+                                            margin-bottom: 0;
+                                        }
+                                    }
+
+                                    @include small() {
+                                        max-width: 100%;
+                                    }
                                 }
                             }
 
                             img {
                                 margin-right: 60px;
+
+                                @include small() {
+                                    display: none;
+                                }
                             }
                         }
                     }
 
-                    >img {
-                        max-width: 205px;
-                        max-height: 677px;
-                        display: block;
+                    .bottle-container {
                         transition: ease-in-out 300ms;
                         transform: translateY(170px);
+
+                        @include small() {
+                            display: none;
+                        }
+
+                        >img {
+                            max-width: 205px;
+                            max-height: 677px;
+                            display: block;
+                            @include small() {
+                                margin: 0 auto;
+                            }
+                        }
                     }
 
                     .buy {
                         max-width: 100px;
+                        order: 3;
+                        font-size: 97px;
+
+                        @include small() {
+                            max-width: 100%;
+                            width: 100%;
+                            margin: 40px 0;
+                        }
 
                         a {
                             color: $flora;
@@ -778,7 +881,15 @@ main {
                             margin: 0 auto;
                             font-family: 'BommerSans', Arial, Helvetica, sans-serif;
                             text-decoration: none;
-                            font-size: 97px;
+                            font-size: 1em;
+
+                            @include small() {
+                                transform: rotate(0) translateX(0);
+                                font-size: 0.7em;
+                                display: block;
+                                width: 100%;
+                                text-align: center;
+                            }
 
                             &::before {
                                 content: '';
@@ -796,6 +907,7 @@ main {
                         }
                     }
                 }
+
                 .wine-name {
                     position: absolute;
                     bottom: -15px;
@@ -803,6 +915,26 @@ main {
                     right: 0;
                     z-index: -1;
                     transition: ease-in-out 300ms;
+
+                    @include small() {
+                        top: 0;
+                        bottom: auto;
+                        right: 0;
+                        left: auto;
+
+                        &.il-pisani-name {
+                            transform: rotate(-90deg) translate(-500px, 267%);
+                        }
+
+                        &.flora-name {
+                            transform: rotate(-90deg) translate(-500px, 179%);
+                        }
+
+                        &.piocaia-name {
+                            transform: rotate(-90deg) translate(-500px, 244%);
+                        }
+                    }
+
                     img {
                         max-width: 64.375rem;
                         width: 100%;
@@ -845,22 +977,23 @@ main {
 
                 .top-logo {
                     order: 1;
+
                     svg {
                         width: 100%;
                         max-width: 250px;
-    
+
                         path {
                             fill: white;
                         }
                     }
                 }
-    
+
                 .wine-details {
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     order: 2;
-    
+
                     p {
                         margin-left: -12.5rem;
                         margin-top: 5em;
@@ -873,44 +1006,46 @@ main {
                         }
                     }
                 }
-    
-                #house2 {
-                    order: 3;
-                    position: absolute;
-                    top: 200px;
-                    right: 20px;
-    
-                    @include small() {
-                        display: none;
-                    }
-                }
-    
+
                 .section-title {
                     @include small() {
                         order: 0;
                     }
+
                     h2 {
                         font-size: 15.7rem;
                         line-height: 11.5rem;
                         color: $gold;
                         margin-top: -7rem;
-    
+
                         @include small() {
                             font-size: 6rem;
                             line-height: 5rem;
                             margin-top: 0;
                             margin-bottom: 5rem;
                         }
-    
+
                         span {
                             line-height: 16.4rem;
-    
+
                             @include small() {
                                 line-height: 5rem;
                             }
+
                             display: inline-block;
                         }
                     }
+                }
+            }
+
+            #house2 {
+                order: 3;
+                position: absolute;
+                top: 200px;
+                right: 20px;
+
+                @include small() {
+                    display: none;
                 }
             }
 
@@ -1005,7 +1140,6 @@ main {
                         @media screen and (max-width: 952px) {
                             font-size: 12rem;
                             line-height: 10rem;
-                            transform: translateY(30rem) rotate(-90deg);
                         }
 
                         @include small() {
@@ -1070,6 +1204,13 @@ main {
                             justify-content: flex-start;
                             margin-top: 7.5rem;
                             margin-left: 0.625rem;
+                            @include small() {
+                                margin-top: 11.5rem;
+                            }
+
+                            @include extraSmall() {
+                                margin-top: 7.5rem;
+                            }
 
                             p {
                                 display: none;
@@ -1326,6 +1467,7 @@ main {
 
                     &.vertical-img {
                         max-width: 315px;
+
                         @include small() {
                             width: auto;
                             max-height: 231px;
@@ -1334,12 +1476,13 @@ main {
 
                     &.horizontal-img {
                         max-width: 708px;
+
                         @include small() {
                             max-width: 347px;
                         }
                     }
 
-                    
+
                 }
             }
         }
@@ -1481,15 +1624,28 @@ main {
     position: absolute;
     bottom: 50px;
     z-index: 9;
+    transition: ease-in-out 300ms;
+
+    @include small() {
+        top: 50%;
+    }
 
     &.slick-prev {
         transform: rotate(90deg);
         left: 0;
+
+        @include small() {
+            transform: translateY(calc(-50% - 70px)) rotate(90deg);
+        }
     }
 
     &.slick-next {
         transform: rotate(-90deg);
         right: 0;
+
+        @include small() {
+            transform: translateY(calc(-50% - 70px)) rotate(-90deg);
+        }
     }
 }
 
