@@ -4,6 +4,7 @@ $darkblue: #090c0e;
 $grey: #76777A;
 $gold: #B79E4B;
 $flora: #EB0045;
+$ilpisani: #6FCFEB;
 
 $giorno: #7D6A33;
 $giornoColors: (6: #8D7A39,
@@ -75,6 +76,26 @@ $extra: 1440px;
 
     50% {
         transform: translateY(100%);
+    }
+}
+
+@keyframes pointleft {
+    0% {
+        transform: translateY(calc(-50% - 90px)) translateX(0) rotate(90deg);
+    }
+
+    50% {
+        transform: translateY(calc(-50% - 90px)) translateX(-50%) rotate(90deg);
+    }
+}
+
+@keyframes pointright {
+    0% {
+        transform: translateY(calc(-50% - 90px)) translateX(0) rotate(-90deg);
+    }
+
+    50% {
+        transform: translateY(calc(-50% - 90px)) translateX(50%) rotate(-90deg);
     }
 }
 
@@ -745,8 +766,9 @@ main {
                         .title {
                             display: flex;
                             text-transform: uppercase;
+
                             @include small() {
-                                order: 0;
+                                order: 2;
                             }
 
                             h3 {
@@ -764,17 +786,19 @@ main {
 
                         .bottle-area-mobile {
                             display: none;
+
                             @include small() {
                                 display: flex;
                                 flex-wrap: wrap;
                                 width: 100%;
-                                order: 1;
-                                margin-top: 30px;
+                                margin-bottom: 5rem;
                                 align-items: center;
+                                order: 0;
 
                                 div {
                                     &:first-child {
                                         width: 70%;
+
                                         img {
                                             display: block;
                                             width: 100%;
@@ -791,7 +815,7 @@ main {
                             margin-top: 60px;
 
                             @include small() {
-                                order: 2;
+                                order: 3;
                             }
 
                             div {
@@ -804,7 +828,7 @@ main {
 
                                 &:last-child {
                                     margin-left: 50px;
-                                    
+
                                     @include small() {
                                         display: none;
                                     }
@@ -815,15 +839,15 @@ main {
 
                                     &.flora-txt {
                                         margin-bottom: 110px;
-                                    
+
                                         @include small() {
                                             margin-bottom: 0;
                                         }
                                     }
-                                    
+
                                     &.il-pisani-txt {
                                         margin-bottom: 45px;
-                                    
+
                                         @include small() {
                                             margin-bottom: 0;
                                         }
@@ -857,6 +881,7 @@ main {
                             max-width: 205px;
                             max-height: 677px;
                             display: block;
+
                             @include small() {
                                 margin: 0 auto;
                             }
@@ -872,6 +897,24 @@ main {
                             max-width: 100%;
                             width: 100%;
                             margin: 40px 0;
+                        }
+
+                        &.flora {
+                            a {
+                                color: $flora;
+                            }
+                        }
+
+                        &.piocaia {
+                            a {
+                                color: $primary;
+                            }
+                        }
+
+                        &.ilpisani {
+                            a {
+                                color: $ilpisani;
+                            }
                         }
 
                         a {
@@ -923,15 +966,15 @@ main {
                         left: auto;
 
                         &.il-pisani-name {
-                            transform: rotate(-90deg) translate(-500px, 267%);
+                            transform: rotate(-90deg) translate(-350px, 267%);
                         }
 
                         &.flora-name {
-                            transform: rotate(-90deg) translate(-500px, 179%);
+                            transform: rotate(-90deg) translate(-350px, 179%);
                         }
 
                         &.piocaia-name {
-                            transform: rotate(-90deg) translate(-500px, 244%);
+                            transform: rotate(-90deg) translate(-350px, 244%);
                         }
                     }
 
@@ -1203,6 +1246,7 @@ main {
                             justify-content: flex-start;
                             margin-top: 7.5rem;
                             margin-left: 0.625rem;
+
                             @include small() {
                                 margin-top: 11.5rem;
                             }
@@ -1295,9 +1339,103 @@ main {
                     opacity: 0.5;
                 }
 
+                .mobile-house-parts-txt {
+                    @include medium() {
+                        display: none;
+                    }
+
+                    .tabs {
+                        position: relative;
+                        margin: 3rem 0;
+                        height: 14.75rem;
+                        display: flex;
+
+                        &::before,
+                        &::after {
+                            content: "";
+                            display: table;
+                        }
+
+                        &::after {
+                            clear: both;
+                        }
+
+
+
+                        .tab {
+                            float: left;
+
+                            &:last-child {
+                                .tab-label {
+                                    border-right: none;
+                                }
+                            }
+
+                            .tab-switch {
+                                display: none;
+
+                                &:checked+.tab-label {
+                                    background: $primary;
+                                    color: white;
+                                    border-bottom: 0;
+                                    border-right: 0.125rem solid #fff;
+                                    transition: all 0.35s;
+                                    z-index: 1;
+                                }
+
+                                &:checked+label+.tab-content {
+                                    z-index: 2;
+                                    opacity: 1;
+                                    transition: all 0.35s;
+                                }
+                            }
+
+                            .tab-label {
+                                position: relative;
+                                display: block;
+                                line-height: 2.75em;
+                                height: 3em;
+                                padding: 0 0.9375rem;
+                                background: white;
+                                border-right: 0.125rem solid $darkblue;
+                                color: $primary;
+                                cursor: pointer;
+                                top: 0;
+                                transition: all 0.25s;
+                                font-family: 'BommerSans', Arial, Helvetica, sans-serif;
+                                white-space: nowrap;
+                                font-size: 0.8125rem;
+
+                            }
+
+                            .tab-content {
+                                width: 100%;
+                                position: absolute;
+                                z-index: 1;
+                                top: 2.75em;
+                                left: 0;
+                                padding: 0.9375rem;
+                                background: #fff;
+                                color: $primary;
+                                opacity: 0;
+                                transition: all 0.35s;
+
+                                p {
+                                    color: inherit;
+                                    max-width: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+
                 .top-side-texts {
                     display: flex;
                     margin-bottom: 3.125rem;
+
+                    @include small() {
+                        display: none;
+                    }
 
                     div {
                         position: relative;
@@ -1361,6 +1499,10 @@ main {
                     display: flex;
                     margin-top: 1.25rem;
 
+                    @include small() {
+                        display: none;
+                    }
+
                     div {
                         position: relative;
                         width: 50%;
@@ -1404,6 +1546,7 @@ main {
                     #hcenter,
                     #hright {
                         transition: ease-in-out 300ms;
+                        cursor: pointer;
 
                         &:hover {
                             transform: scale(1.05) translateX(-2%);
@@ -1490,10 +1633,17 @@ main {
     #contact {
         position: relative;
         overflow: hidden;
+        background-color: $primary;
         background-image: url(../imgs/oldmap.svg);
-        background-size: cover;
+        background-size: calc(100% + 400px);
         background-position: center center;
+        background-position-x: -400px;
         background-repeat: no-repeat;
+
+        @include small() {
+            background-position: center center;
+            background-size: cover;
+        }
 
         menu {
             li {
@@ -1515,13 +1665,27 @@ main {
             display: flex;
 
             >div {
-                width: 50%;
+                width: 40%;
+
+                @include small() {
+                    &:first-child {
+                        display: none;
+                    }
+                }
 
                 &:last-child {
+                    display: flex;
                     padding: 9.375rem 0;
+                    width: 60%;
 
                     @include extraSmall() {
                         padding: 3rem 0;
+                    }
+
+                    @include small() {
+                        width: 100%;
+                        flex-wrap: wrap;
+                        flex-direction: column;
                     }
 
                     .address {
@@ -1529,19 +1693,40 @@ main {
                         border: 0.125rem solid $primary;
                         padding: 0.25rem;
                         max-width: 14.375rem;
-                        margin-left: 4.375rem;
+                        margin-left: 1.375rem;
+                        display: flex;
+                        flex-wrap: wrap;
+                        flex-direction: column;
+                        justify-content: center;
+
+                        @include small() {
+                            max-width: 100%;
+                            margin: 0;
+                            margin-top: 1.25rem;
+                            order: 1;
+                        }
 
                         @include extraSmall() {
                             margin-left: 0;
                         }
 
                         .address-content {
-                            padding: 3.125rem 1.25rem;
+                            padding: 0 1.25rem;
                             color: $primary;
+                            height: 100%;
+                            display: flex;
+                            flex-wrap: wrap;
+                            flex-direction: column;
+                            justify-content: center;
 
                             img {
                                 display: block;
                                 margin-bottom: 1.875rem;
+                                width: 1.5625rem;
+
+                                @include small() {
+                                    margin-top: 30px;
+                                }
                             }
 
                             h4 {
@@ -1556,6 +1741,114 @@ main {
                                 display: block;
                                 font-weight: lighter;
                                 margin-bottom: 6.25rem;
+
+                                @include small() {
+                                    margin-bottom: 60px;
+                                }
+                            }
+
+                        }
+
+                        .bluedivision {
+                            margin-top: -23px;
+                        }
+                    }
+
+                    .form {
+                        width: 100%;
+                        max-width: 425px;
+                        margin-left: 10px;
+                        border: 2px solid white;
+                        background-color: $primary;
+                        padding: 20px;
+
+                        @include small() {
+                            margin: 0;
+                            order: 0;
+                        }
+
+                        h5 {
+                            color: white;
+                            font-size: 1.375rem;
+                            letter-spacing: normal;
+                        }
+
+                        p {
+                            max-width: 100%;
+                            margin: 10px 0;
+                        }
+
+                        .fields {
+                            display: flex;
+                            flex-wrap: wrap;
+
+                            input,
+                            textarea {
+                                width: 100%;
+                                border: 2px white solid;
+                                background-color: transparent;
+                                font-size: 1.075rem;
+                                font-family: 'BommerSans', Arial, Helvetica, sans-serif;
+                                padding: 0.625rem;
+                                color: white;
+                                margin-top: 0.625rem;
+                                min-width: 100%;
+
+                                &::placeholder {
+                                    color: white;
+                                    opacity: 0.5;
+                                    font-size: 1.375rem;
+                                }
+                            }
+                        }
+
+                        .buttons {
+                            display: flex;
+
+                            @include small() {
+                                flex-wrap: wrap;
+                            }
+
+                            button {
+                                width: calc(100% - 7.875rem);
+                                background-color: white;
+                                color: $primary;
+                                font-size: 1.375rem;
+                                border: none;
+                                padding: 10px;
+                                text-align: right;
+                                display: block;
+                                margin-left: 7.875rem;
+                                font-weight: bold;
+                                margin-top: 20px;
+                                height: 51px;
+                                position: relative;
+
+                                svg {
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 50%;
+                                    transform: translate(-50%, -50%);
+                                }
+                            }
+
+                            .recaptcha-place {
+                                width: 50%;
+
+                                #g-recaptcha {
+                                    transform: scale(0.7);
+                                    margin-left: -34px;
+                                    margin-top: 7px;
+
+                                    @include small() {
+                                        transform: scale(1);
+                                        margin: 7px 0 0 0;
+                                    }
+                                }
+
+                                @include small() {
+                                    width: 100%;
+                                }
                             }
                         }
                     }
@@ -1571,7 +1864,7 @@ main {
     position: relative;
 
     &::before {
-        content: 'vecchio';
+        content: 'vista';
         font-family: 'BommerSans', Arial, Helvetica, sans-serif;
         font-size: 3.4rem;
         color: white;
@@ -1583,7 +1876,7 @@ main {
     }
 
     &::after {
-        content: 'nuovo';
+        content: 'jardins';
         font-family: 'BommerSans', Arial, Helvetica, sans-serif;
         font-size: 3.4rem;
         color: white;
@@ -1624,6 +1917,7 @@ main {
     bottom: 50px;
     z-index: 9;
     transition: ease-in-out 300ms;
+    outline: none;
 
     @include small() {
         top: 50%;
@@ -1634,7 +1928,8 @@ main {
         left: 0;
 
         @include small() {
-            transform: translateY(calc(-50% - 70px)) rotate(90deg);
+            transform: translateY(calc(-50% - 90px)) rotate(90deg);
+            animation: pointleft 1s infinite;
         }
     }
 
@@ -1643,7 +1938,8 @@ main {
         right: 0;
 
         @include small() {
-            transform: translateY(calc(-50% - 70px)) rotate(-90deg);
+            transform: translateY(calc(-50% - 90px)) rotate(-90deg);
+            animation: pointright 1s infinite;
         }
     }
 }
