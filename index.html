@@ -13,6 +13,7 @@
     <meta property="og:type" content="product.group">
     <meta property="og:image"
         content="https://lh3.googleusercontent.com/proxy/S0v07htZKlzgyYxiarZxRIWVcORH6JZqwEV660we6hNFRBzD4eNTPpIQP-kLdrs2bVXBur25KrPs-Avu48KP0kMA8wmnOvXnIYjZvGUTps0_DUkRHVR_mmiEa2I9krJbam5E38TsQ-zcPZdvyrGFwFMFvJyq">
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/pixelcompare.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/fonts.css">
@@ -20,6 +21,14 @@
 </head>
 
 <body>
+    <script type="text/javascript">
+        var onloadCallback = function () {
+            grecaptcha.render('g-recaptcha', {
+                'sitekey': '6LcxLuEUAAAAAETTc_Fq5FjhmPURmCFG2k0otXY7'
+            });
+        };
+    </script>
+
     <main id="app" data-simplebar>
 
         <nav id="mobileMenu" role="navigation" style="height: 0;">
@@ -491,15 +500,6 @@
                     <div style="position: relative">
                         <div class="wine-description">
                             <div class="description">
-                                <div class="title">
-                                    <img src="assets/imgs/glass.png" alt="Taça de vinho">
-                                    <div>
-                                        <h3>Flora</h3>
-                                        <p><strong>Chianti Putto D.O.C.G.</strong></p>
-                                        <p>Sangiovese & Canajolo & Ciliegiolo</p>
-                                        <p>Vinho Fino Tinto Seco</p>
-                                    </div>
-                                </div>
                                 <div class="bottle-area-mobile">
                                     <div>
                                         <img src="assets/imgs/vinis/flora.png" alt="Vinho Flora">
@@ -509,6 +509,15 @@
                                         <p><strong>2018</strong></p>
                                         <p>Toscana</p>
                                         <p>13,5% VOL. <br /> 750ml</p>
+                                    </div>
+                                </div>
+                                <div class="title">
+                                    <img src="assets/imgs/glass.png" alt="Taça de vinho">
+                                    <div>
+                                        <h3>Flora</h3>
+                                        <p><strong>Chianti Putto D.O.C.G.</strong></p>
+                                        <p>Sangiovese & Canajolo & Ciliegiolo</p>
+                                        <p>Vinho Fino Tinto Seco</p>
                                     </div>
                                 </div>
                                 <div class="text">
@@ -545,7 +554,7 @@
                             <div class="bottle-container">
                                 <img src="assets/imgs/vinis/flora.png" alt="Vinho Flora">
                             </div>
-                            <div class="buy"><a href="https://www.evino.com.br" target="_blank">comprar</a></div>
+                            <div class="buy flora"><a href="https://www.evino.com.br" target="_blank">comprar</a></div>
                         </div>
                         <div class="wine-name flora-name">
                             <img src="assets/imgs/vinis/flora-font.png" alt="Flora">
@@ -554,25 +563,25 @@
                     <div style="position: relative">
                         <div class="wine-description">
                             <div class="description">
+                                <div class="bottle-area-mobile">
+                                    <div>
+                                        <img src="assets/imgs/vinis/piocaia.png" alt="Vinho Flora">
+                                    </div>
+                                    <div>
+                                        <p><strong>Chianti<br /> Reserva</strong></p>
+                                        <p><strong>2016</strong></p>
+                                        <p>Toscana</p>
+                                        <p>13,5% VOL. <br /> 750ml</p>
+                                    </div>
+                                </div>
                                 <div class="title">
-                                    <img src="assets/imgs/glass.png" alt="Taça de vinho">
+                                    <img src="assets/imgs/glass-piocaia.png" alt="Taça de vinho">
                                     <div>
                                         <h3>Piocaia</h3>
                                         <p>Indicazione Geografica Tipica</p>
                                         <p><strong>Rosso Di Toscana</strong></p>
                                         <p>Sangiovese & Merlot</p>
                                         <p>Vinho Fino Tinto Seco</p>
-                                    </div>
-                                </div>
-                                <div class="bottle-area-mobile">
-                                    <div>
-                                        <img src="assets/imgs/vinis/piocaia.png" alt="Vinho Flora">
-                                    </div>
-                                    <div>
-                                        <p><strong>Chianti</strong></p>
-                                        <p><strong>2018</strong></p>
-                                        <p>Toscana</p>
-                                        <p>13,5% VOL. <br /> 750ml</p>
                                     </div>
                                 </div>
                                 <div class="text">
@@ -613,7 +622,7 @@
                             <div class="bottle-container">
                                 <img src="assets/imgs/vinis/piocaia.png" alt="Vinho Flora">
                             </div>
-                            <div class="buy"><a href="https://www.evino.com.br" target="_blank">comprar</a></div>
+                            <div class="buy piocaia"><a href="https://www.evino.com.br" target="_blank">comprar</a></div>
                         </div>
                         <div class="wine-name piocaia-name">
                             <img src="assets/imgs/vinis/piocaia-font.png" alt="Piocaia">
@@ -622,15 +631,6 @@
                     <div style="position: relative">
                         <div class="wine-description">
                             <div class="description">
-                                <div class="title">
-                                    <img src="assets/imgs/glass.png" alt="Taça de vinho">
-                                    <div>
-                                        <h3>Il Pisani</h3>
-                                        <p><strong>Chianti Riserva</strong></p>
-                                        <p>Sangiovese & Canajolo & Ciliegiolo</p>
-                                        <p>Vinho Fino Tinto Seco</p>
-                                    </div>
-                                </div>
                                 <div class="bottle-area-mobile">
                                     <div>
                                         <img src="assets/imgs/vinis/ilpisani.png" alt="Vinho Flora">
@@ -640,6 +640,15 @@
                                         <p><strong>2018</strong></p>
                                         <p>Toscana</p>
                                         <p>13,5% VOL. <br /> 750ml</p>
+                                    </div>
+                                </div>
+                                <div class="title">
+                                    <img src="assets/imgs/glass-ilpisani.png" alt="Taça de vinho">
+                                    <div>
+                                        <h3>Il Pisani</h3>
+                                        <p><strong>Chianti Riserva</strong></p>
+                                        <p>Sangiovese & Canajolo & Ciliegiolo</p>
+                                        <p>Vinho Fino Tinto Seco</p>
                                     </div>
                                 </div>
                                 <div class="text">
@@ -677,7 +686,7 @@
                             <div class="bottle-container">
                                 <img src="assets/imgs/vinis/ilpisani.png" alt="Vinho Flora">
                             </div>
-                            <div class="buy"><a href="https://www.evino.com.br" target="_blank">comprar</a></div>
+                            <div class="buy ilpisani"><a href="https://www.evino.com.br" target="_blank">comprar</a></div>
                         </div>
                         <div class="wine-name il-pisani-name">
                             <img src="assets/imgs/vinis/ilpisani-font.png" alt="Il Pisani">
@@ -1136,6 +1145,51 @@
                             </g>
                         </svg>
 
+                        <div class="mobile-house-parts-txt">
+                            <div class="tabs">
+                                <div class="tab">
+                                    <input type="radio" name="css-tabs" id="tab-1" checked class="tab-switch">
+                                    <label for="tab-1" class="tab-label">Villa Arturo</label>
+                                    <div class="tab-content">
+                                        <p>
+                                            Parte central da casa com XYZ metros, entrada e saída
+                                            privativa, com os dois salões com afrescos, XYZ metros incluindo ZYX suites.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="tab">
+                                    <input type="radio" name="css-tabs" id="tab-2" class="tab-switch">
+                                    <label for="tab-2" class="tab-label">Villa Vivaldo</label>
+                                    <div class="tab-content">
+                                        <p>
+                                            Parte com a tradicional fachada que estampa os
+                                            vinhos da casa com XYZ
+                                            metros, entrada e saida privativa, com os dois salões com afrescos, XYZ
+                                            metros
+                                            incluindo ZYX suites.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="tab">
+                                    <input type="radio" name="css-tabs" id="tab-3" class="tab-switch">
+                                    <label for="tab-3" class="tab-label">Villa Pisani</label>
+                                    <div class="tab-content">
+                                        <p>
+                                            2 apartamentos estilo loft com pé direito alto,
+                                            contrastando a
+                                            modernidade com a historia da Villa. Aluguel mínimo 3 dias.<br />
+                                            <strong>Apartamento 1:</strong> XY metros, 2 quartos (1 suite), sala,
+                                            antessala e
+                                            entrada privativa.<br />
+                                            <strong>Apartamento 1:</strong> XY metros, 2 quartos (1 suite), sala,
+                                            antessala e
+                                            entrada privativa.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
 
                         <div class="bottom-side-texts">
                             <div class="hleft-content">
@@ -1348,8 +1402,8 @@
 
             <div class="container">
                 <div class="contact-container">
-                    <div class="form"></div>
-                    <div>
+                    <div></div>
+                    <div class="right-container">
                         <div class="address">
                             <div class="address-content">
                                 <img src="assets/imgs/pin-contact.png" alt="Pin contato">
@@ -1357,12 +1411,53 @@
                                 <h4>Villa D'ancona</h4>
 
                                 <span>
-                                    Via Ancona<br />
-                                    52010 San Piero in Frassino, AR<br />
+                                    Via Ancona 52010<br />
+                                    San Piero in Frassino, AR<br />
                                     Italy
                                 </span>
                             </div>
                             <div class="bluedivision"></div>
+                        </div>
+                        <div class="form">
+                            <h5>Contato e reservas</h5>
+                            <p>Para aluguéis, informe o mês de interesse na casa.</p>
+                            <form>
+                                <div class="fields">
+                                    <input type="text" name="name" placeholder="Nome" required>
+                                    <input type="text" name="phone" placeholder="Telefone" required>
+                                    <input type="email" name="email" placeholder="E-mail" required>
+                                    <textarea name="message" placeholder="Mensagem" required></textarea>
+                                </div>
+                                <div class="buttons">
+                                    <div class="recaptcha-place">
+                                        <div id="g-recaptcha" data-sitekey="6LcxLuEUAAAAAETTc_Fq5FjhmPURmCFG2k0otXY7">
+                                        </div>
+                                    </div>
+                                    <button type="submit">
+                                        <span id="send-message">Enviar</span>
+                                        <span id="loader" style="display: none;">
+                                            <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px"
+                                                height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40"
+                                                xml:space="preserve">
+                                                <path opacity="0.2" fill="#000"
+                                                    d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946
+                                                s14.946-6.691,14.946-14.946C35.146,11.861,28.455,5.169,20.201,5.169z M20.201,31.749c-6.425,0-11.634-5.208-11.634-11.634
+                                                c0-6.425,5.209-11.634,11.634-11.634c6.425,0,11.633,5.209,11.633,11.634C31.834,26.541,26.626,31.749,20.201,31.749z">
+                                                </path>
+                                                <path fill="#000" d="M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0
+                                                C22.32,8.481,24.301,9.057,26.013,10.047z"
+                                                    transform="rotate(245.007 20 20)">
+                                                    <animateTransform attributeType="xml" attributeName="transform"
+                                                        type="rotate" from="0 20 20" to="360 20 20" dur="0.5s"
+                                                        repeatCount="indefinite">
+                                                    </animateTransform>
+                                                </path>
+                                            </svg>
+                                        </span>
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -1376,6 +1471,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/slick.css">
     <link rel="stylesheet" type="text/css" href="assets/css/tiny-slider.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/aos.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/jquery.toast.min.css">
     <!--[if (lt IE 9)]><script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.helper.ie8.js"></script><![endif]-->
     <script type="text/javascript" src="assets/js/jquery.min.js"></script>
     <script type="text/javascript" src="assets/js/slick.min.js"></script>
@@ -1383,6 +1479,7 @@
     <script type="text/javascript" src="assets/js/aos.min.js"></script>
     <script type="text/javascript" src="assets/js/parallax.js"></script>
     <script type="text/javascript" src="assets/js/vivus.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.toast.min.js"></script>
     <script type="text/javascript" src="assets/js/functions.js"></script>
 </body>
 

@@ -1,8 +1,8 @@
 $(document).ready(function () {
 
     var greetings = getGreetingTime(new Date());
-    document.getElementById('buon').classList.add(greetings)
-    document.getElementById('greetings').innerText = greetingsMsg(greetings)
+    document.getElementById('buon').classList.add(greetings);
+    document.getElementById('greetings').innerText = greetingsMsg(greetings);
 
     //Sliders
     var slider = tns({
@@ -34,14 +34,14 @@ $(document).ready(function () {
             }
         }
 
-        if(index === 2) {
-            $('.slick-next').css('opacity', '0')
+        if (index === 2) {
+            $('.slick-next').css('opacity', '0');
         } else if (!index || index === 0) {
-            $('.slick-prev').css('opacity', '0')
+            $('.slick-prev').css('opacity', '0');
         }
         else {
-            $('.slick-next').css('opacity', '1')
-            $('.slick-prev').css('opacity', '1')
+            $('.slick-next').css('opacity', '1');
+            $('.slick-prev').css('opacity', '1');
         }
 
     }).on('beforeChange', function (event, slick) {
@@ -73,6 +73,77 @@ $(document).ready(function () {
         ]
     });
 
+    var $form = $('form');
+    $form.submit(function (e) {
+        e.preventDefault();
+        $('button[type=submit]').attr('disabled', 'disabled');
+        var formdata = $(this).serialize();
+        var getToken = grecaptcha.getResponse();
+        $('#send-message').hide();
+        $('#loader').show();
+
+        if (getToken) {
+            $.ajax({
+                url: window.location.href + '/contato.php',
+                method: "POST",
+                data: formdata + "&token=" + getToken,
+                dataType: "json",
+                success: function (result) {
+                    $('button[type=submit]').attr('disabled', false);
+                    $('#send-message').html('Enviado!').show();
+                    $('#loader').hide();
+                    $.toast({
+                        text: "Responderemos em breve para seu endereço de e-mail.", // Text that is to be shown in the toast
+                        heading: 'Mensagem enviada!',
+                        icon: 'success',
+                        showHideTransition: 'fade',
+                        allowToastClose: true,
+                        hideAfter: 4000,
+                        stack: 5,
+                        position: 'bottom-center',
+                        textAlign: 'left',
+                        loader: true,
+                    });
+                    grecaptcha.reset();
+                },
+                error: function (err) {
+                    $('button[type=submit]').attr('disabled', false);
+                    $('#send-message').html('Erro').show();
+                    $('#loader').hide();
+                    $.toast({
+                        text: err.message,
+                        heading: 'Erro ao enviar',
+                        icon: 'success',
+                        showHideTransition: 'fade',
+                        allowToastClose: true,
+                        hideAfter: 4000,
+                        stack: 5,
+                        position: 'bottom-center',
+                        textAlign: 'left',
+                        loader: true,
+                    });
+                    grecaptcha.reset();
+                }
+            });
+        } else {
+            $('button[type=submit]').attr('disabled', false);
+            $.toast({
+                heading: 'Confirme o recaptcha!',
+                icon: 'warning',
+                showHideTransition: 'fade',
+                allowToastClose: true,
+                hideAfter: 4000,
+                stack: 5,
+                position: 'bottom-center',
+                textAlign: 'left',
+                loader: true,
+            });
+            grecaptcha.reset();
+            $('#send-message').html('Enviar').show();
+            $('#loader').hide();
+        }
+    });
+
     //AOS
     AOS.init();
 
@@ -81,16 +152,16 @@ $(document).ready(function () {
     var parallaxInstance = new Parallax(scene);
 
     //Menu
-    setMenuPosition()
+    setMenuPosition();
     window.addEventListener('scroll', function (e) {
-        setMenuPosition()
+        setMenuPosition();
     });
 
-    document.querySelectorAll('#menuToggle #menu li a').forEach(function($link) {
-        $link.addEventListener('click', function() {
+    document.querySelectorAll('#menuToggle #menu li a').forEach(function ($link) {
+        $link.addEventListener('click', function () {
             document.querySelector('#menuToggle input[type=checkbox]').checked = false;
-        })
-    })
+        });
+    });
 
     //Vivus
     new Vivus('house1', { duration: 200, file: 'assets/imgs/house.svg' });
@@ -105,33 +176,97 @@ $(document).ready(function () {
     $hrightContent = document.querySelector('.hright-content');
 
     $hleft.addEventListener('mouseover', function (e) {
-        $hcenter.classList.add('outhover')
-        $hcenterContent.classList.add('outhover')
-        $hright.classList.add('outhover')
-        $hrightContent.classList.add('outhover')
-    })
+        if (window.outerWidth > 768) {
+            addOutHover($hcenter, $hcenterContent, $hright, $hrightContent);
+        }
+    });
     $hcenter.addEventListener('mouseover', function (e) {
-        $hleft.classList.add('outhover')
-        $hrightContent.classList.add('outhover')
-        $hleft.classList.add('outhover')
-        $hrightContent.classList.add('outhover')
-    })
+        if (window.outerWidth > 768) {
+            addOutHover($hleft, $hleftContent, $hright, $hrightContent);
+        }
+    });
     $hright.addEventListener('mouseover', function (e) {
-        $hcenter.classList.add('outhover')
-        $hleftContent.classList.add('outhover')
-        $hcenter.classList.add('outhover')
-        $hleftContent.classList.add('outhover')
-    })
+        if (window.outerWidth > 768) {
+            addOutHover($hcenter, $hcenterContent, $hleft, $hleftContent);
+        }
+    });
     $hleft.addEventListener('mouseout', function () {
-        removeHousePartClasses()
-    })
+        if (window.outerWidth > 768) {
+            removeHousePartClasses();
+        }
+    });
     $hcenter.addEventListener('mouseout', function () {
-        removeHousePartClasses()
-    })
+        if (window.outerWidth > 768) {
+            removeHousePartClasses();
+        }
+    });
     $hright.addEventListener('mouseout', function () {
-        removeHousePartClasses()
+        if (window.outerWidth > 768) {
+            removeHousePartClasses();
+        }
+    });
+
+    $hleft.addEventListener('click', function (e) {
+        if (window.outerWidth <= 768) {
+            removeHousePartClasses();
+            addOutHover($hcenter, $hcenterContent, $hright, $hrightContent);
+            document.getElementById('tab-1').click()
+        }
+    });
+    $hcenter.addEventListener('click', function (e) {
+        if (window.outerWidth <= 768) {
+            removeHousePartClasses();
+            addOutHover($hleft, $hleftContent, $hright, $hrightContent);
+            document.getElementById('tab-2').click()
+        }
+    });
+    $hright.addEventListener('click', function (e) {
+        if (window.outerWidth <= 768) {
+            removeHousePartClasses();
+            addOutHover($hcenter, $hcenterContent, $hleft, $hleftContent);
+            document.getElementById('tab-3').click()
+        }
+    });
+
+    document.querySelectorAll('.tab input').forEach(function ($tab) {
+        $tab.addEventListener('change', function (e) {
+            var $this = e.target;
+            if ($this.checked) {
+                activeHousePart($this.getAttribute('id'))();
+            }
+        })
     })
-})
+});
+
+function activeHousePart(id) {
+    $hleft = document.getElementById('hleft');
+    $hleftContent = document.querySelector('.hleft-content');
+    $hcenter = document.getElementById('hcenter');
+    $hcenterContent = document.querySelector('.hcenter-content');
+    $hright = document.getElementById('hright');
+    $hrightContent = document.querySelector('.hright-content');
+    return {
+        'tab-1': function () {
+            removeHousePartClasses();
+            addOutHover($hcenter, $hcenterContent, $hright, $hrightContent);
+        },
+        'tab-2': function () {
+            removeHousePartClasses();
+            addOutHover($hleft, $hleftContent, $hright, $hrightContent);
+        },
+        'tab-3': function () {
+            removeHousePartClasses();
+            addOutHover($hcenter, $hcenterContent, $hleft, $hleftContent);
+        }
+    }[id]
+}
+
+function addOutHover($elA, $elAContent, $elB, $elBContent) {
+    $elA.classList.add('outhover');
+    $elAContent.classList.add('outhover');
+    $elB.classList.add('outhover');
+    $elBContent.classList.add('outhover');
+}
 
 function removeHousePartClasses() {
     document.getElementById('hleft').classList.remove('outhover');
@@ -187,7 +322,6 @@ function setMenuPosition() {
     $contactMenuL.setAttribute('style', 'transform: translateX(-50%) translateY(' + (window.scrollY - contactOffset - (contactHeight - window.innerHeight) / 2) + '' + 'px) rotate(-90deg);')
     $contactMenuR.setAttribute('style', 'transform: translateX(-50%) translateY(' + (window.scrollY - contactOffset - (contactHeight - window.innerHeight) / 2) + '' + 'px);')
 }
-
 
 function getGreetingTime(d) {
     var time = d.getHours();
