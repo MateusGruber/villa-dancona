@@ -69,6 +69,17 @@ $extra: 1440px;
 }
 
 //Animation
+
+@keyframes marquee {
+    from {
+        transform: translateX(-25%);
+    }
+
+    to {
+        transform: translateX(-75%);
+    }
+}
+
 @keyframes pointdown {
     0% {
         transform: translateY(0%);
@@ -89,6 +100,16 @@ $extra: 1440px;
     }
 }
 
+@keyframes pointleftdesk {
+    0% {
+        transform: translateX(0) rotate(90deg);
+    }
+
+    50% {
+        transform: translateX(-50%) rotate(90deg);
+    }
+}
+
 @keyframes pointright {
     0% {
         transform: translateY(calc(-50% - 90px)) translateX(0) rotate(-90deg);
@@ -96,6 +117,16 @@ $extra: 1440px;
 
     50% {
         transform: translateY(calc(-50% - 90px)) translateX(50%) rotate(-90deg);
+    }
+}
+
+@keyframes pointrightdesk {
+    0% {
+        transform: translateX(0) rotate(-90deg);
+    }
+
+    50% {
+        transform: translateX(50%) rotate(-90deg);
     }
 }
 
@@ -1007,6 +1038,26 @@ main {
                 padding: 5rem 15px;
             }
 
+            .fakeMarkee {
+                position: absolute;
+                white-space: nowrap;
+                will-change: transform;
+                animation: marquee 22s linear infinite;
+                margin-top: 80px;
+
+                @include small() {
+                    margin-top: 30px;
+                }
+
+                span {
+                    font-size: 1.1875rem;
+                    color: white;
+                    font-family: 'BommerSans', Arial, Helvetica, sans-serif;
+                    margin: 0px 10px 0;
+                    display: inline-block;
+                }
+            }
+
             .nostro-vino-content {
 
                 @include small() {
@@ -1312,11 +1363,11 @@ main {
             #vecchio-nuovo {
                 min-height: 523px;
                 margin-top: 140px;
-                
+
                 @include small() {
                     min-height: 300px;
                 }
-                
+
                 img {
                     width: 100%;
                 }
@@ -1528,7 +1579,7 @@ main {
                             }
 
                             &::before {
-                                height: 8.75rem;
+                                height: 5.75rem;
                                 border-left-style: solid;
                             }
 
@@ -1667,6 +1718,7 @@ main {
 
         .contact-container {
             display: flex;
+            position: relative;
 
             >div {
                 width: 40%;
@@ -1678,189 +1730,245 @@ main {
                 }
 
                 &:last-child {
-                    display: flex;
-                    padding: 9.375rem 0;
                     width: 60%;
+                    padding: 10rem 0 9.375rem;
 
+                    
                     @include extraSmall() {
                         padding: 3rem 0;
                     }
 
                     @include small() {
                         width: 100%;
-                        flex-wrap: wrap;
-                        flex-direction: column;
+                        max-width: 100%;
                     }
 
-                    .address {
+                    .aluguel-villas {
                         background-color: white;
-                        border: 0.125rem solid $primary;
-                        padding: 0.25rem;
-                        max-width: 14.375rem;
+                        border: 2px solid $primary;
+                        padding: 1.25rem;
                         margin-left: 1.375rem;
-                        display: flex;
-                        flex-wrap: wrap;
-                        flex-direction: column;
-                        justify-content: center;
+                        width: calc(100% - 2.3125rem);
+                        margin-bottom: 10px;
+
+                        max-width: 320px;
+                        position: absolute;
+                        right: 0;
+                        top: -2px;
 
                         @include small() {
+                            width: 100%;
                             max-width: 100%;
-                            margin: 0;
-                            margin-top: 1.25rem;
-                            order: 1;
-                        }
-
-                        @include extraSmall() {
+                            position: relative;
+                            width: 100%;
                             margin-left: 0;
                         }
 
-                        .address-content {
-                            padding: 0 1.25rem;
+                        .close {
+                            position: absolute;
+                            top: 10px;
+                            right: 20px;
+                            font-size: 2rem;
+                            background-color: transparent;
+                            border: none;
+                            cursor: pointer;
+                        }
+
+                        p {
+                            max-width: 100%;
                             color: $primary;
-                            height: 100%;
+                        }
+
+                        h5 {
+                            color: $primary;
+                            letter-spacing: normal;
+                            margin-bottom: 10px;
+                        }
+                    }
+
+                    .right-container {
+                        display: flex;
+
+                        @include small() {
+                            width: 100%;
+                            max-width: 100%;
+                            flex-wrap: wrap;
+                            flex-direction: column;
+
+                        }
+
+                        .address {
+                            background-color: white;
+                            border: 0.125rem solid $primary;
+                            padding: 0.25rem;
+                            max-width: 14.375rem;
+                            margin-left: 1.375rem;
                             display: flex;
                             flex-wrap: wrap;
                             flex-direction: column;
                             justify-content: center;
 
-                            img {
-                                display: block;
-                                margin-bottom: 1.875rem;
-                                width: 1.5625rem;
-
-                                @include small() {
-                                    margin-top: 30px;
-                                }
-                            }
-
-                            h4 {
-                                letter-spacing: normal;
-                                font-family: 1.375rem;
-                                margin-bottom: 1.25rem;
-                            }
-
-                            span {
-                                font-family: 'BommerSans', Arial, Helvetica, sans-serif;
-                                font-size: 1rem;
-                                display: block;
-                                font-weight: lighter;
-                                margin-bottom: 6.25rem;
-
-                                @include small() {
-                                    margin-bottom: 60px;
-                                }
-                            }
-
-                        }
-
-                        .bluedivision {
-                            margin-top: -23px;
-                        }
-                    }
-
-                    .form {
-                        width: 100%;
-                        max-width: 425px;
-                        margin-left: 10px;
-                        border: 2px solid white;
-                        background-color: $primary;
-                        padding: 20px;
-
-                        @include small() {
-                            margin: 0;
-                            order: 0;
-                        }
-
-                        h5 {
-                            color: white;
-                            font-size: 1.375rem;
-                            letter-spacing: normal;
-                        }
-
-                        p {
-                            max-width: 100%;
-                            margin: 10px 0;
-                        }
-
-                        .fields {
-                            display: flex;
-                            flex-wrap: wrap;
-
-                            input,
-                            textarea {
-                                width: 100%;
-                                border: 2px white solid;
-                                background-color: transparent;
-                                font-size: 1.075rem;
-                                font-family: 'BommerSans', Arial, Helvetica, sans-serif;
-                                padding: 0.625rem;
-                                color: white;
-                                margin-top: 0.625rem;
-                                min-width: 100%;
-
-                                &::placeholder {
-                                    color: white;
-                                    opacity: 0.5;
-                                    font-size: 1.375rem;
-                                }
-                            }
-                        }
-
-                        .buttons {
-                            display: flex;
-
                             @include small() {
-                                flex-wrap: wrap;
+                                max-width: 100%;
+                                margin: 0;
+                                margin-top: 1.25rem;
+                                order: 1;
                             }
 
-                            button {
-                                width: calc(100% - 1.875rem);
-                                background-color: white;
+                            @include extraSmall() {
+                                margin-left: 0;
+                            }
+
+                            .address-content {
+                                padding: 0 1.25rem;
                                 color: $primary;
-                                font-size: 1.375rem;
-                                border: none;
-                                padding: 10px;
-                                text-align: right;
-                                display: block;
-                                margin-left: 1.875rem;
-                                font-weight: bold;
-                                margin-top: 20px;
-                                height: 51px;
-                                position: relative;
+                                height: 100%;
+                                display: flex;
+                                flex-wrap: wrap;
+                                flex-direction: column;
+                                justify-content: center;
 
-                                @include small() {
-                                    width: calc(100% - 7.875rem);
-                                    margin-left: 7.875rem;
-                                }
-
-                                svg {
-                                    position: absolute;
-                                    top: 50%;
-                                    left: 50%;
-                                    transform: translate(-50%, -50%);
-                                }
-                            }
-
-                            .recaptcha-place {
-                                width: 50%;
-
-                                #g-recaptcha {
-                                    transform: scale(0.7);
-                                    margin-left: -34px;
-                                    margin-top: 7px;
+                                img {
+                                    display: block;
+                                    margin-bottom: 1.875rem;
+                                    width: 1.5625rem;
 
                                     @include small() {
-                                        transform: scale(1);
-                                        margin: 7px 0 0 0;
+                                        margin-top: 30px;
                                     }
                                 }
 
-                                @include small() {
+                                h4 {
+                                    letter-spacing: normal;
+                                    font-family: 1.375rem;
+                                    margin-bottom: 1.25rem;
+                                }
+
+                                span {
+                                    font-family: 'BommerSans', Arial, Helvetica, sans-serif;
+                                    font-size: 1rem;
+                                    display: block;
+                                    font-weight: lighter;
+                                    margin-bottom: 6.25rem;
+
+                                    @include small() {
+                                        margin-bottom: 60px;
+                                    }
+                                }
+
+                            }
+
+                            .bluedivision {
+                                margin-top: -23px;
+                            }
+                        }
+
+                        .form {
+                            width: 100%;
+                            max-width: 425px;
+                            margin-left: 10px;
+                            border: 2px solid white;
+                            background-color: $primary;
+                            padding: 20px;
+
+                            @include small() {
+                                margin: 0;
+                                order: 0;
+                                max-width: 100%;
+                            }
+
+                            h5 {
+                                color: white;
+                                font-size: 1.375rem;
+                                letter-spacing: normal;
+                            }
+
+                            p {
+                                max-width: 100%;
+                                margin: 10px 0;
+                            }
+
+                            .fields {
+                                display: flex;
+                                flex-wrap: wrap;
+
+                                input,
+                                textarea {
                                     width: 100%;
+                                    border: 2px white solid;
+                                    background-color: transparent;
+                                    font-size: 1.075rem;
+                                    font-family: 'BommerSans', Arial, Helvetica, sans-serif;
+                                    padding: 0.625rem;
+                                    color: white;
+                                    margin-top: 0.625rem;
+                                    min-width: 100%;
+
+                                    &::placeholder {
+                                        color: white;
+                                        opacity: 0.5;
+                                        font-size: 1.375rem;
+                                    }
+                                }
+                            }
+
+                            .buttons {
+                                display: flex;
+
+                                @include small() {
+                                    flex-wrap: wrap;
+                                }
+
+                                button {
+                                    width: calc(100% - 1.875rem);
+                                    background-color: white;
+                                    color: $primary;
+                                    font-size: 1.375rem;
+                                    border: none;
+                                    padding: 10px;
+                                    text-align: right;
+                                    display: block;
+                                    margin-left: 1.875rem;
+                                    font-weight: bold;
+                                    margin-top: 20px;
+                                    height: 51px;
+                                    position: relative;
+
+                                    @include small() {
+                                        width: calc(100% - 7.875rem);
+                                        margin-left: 7.875rem;
+                                    }
+
+                                    svg {
+                                        position: absolute;
+                                        top: 50%;
+                                        left: 50%;
+                                        transform: translate(-50%, -50%);
+                                    }
+                                }
+
+                                .recaptcha-place {
+                                    width: 50%;
+
+                                    #g-recaptcha {
+                                        transform: scale(0.7);
+                                        margin-left: -34px;
+                                        margin-top: 7px;
+
+                                        @include small() {
+                                            transform: scale(1);
+                                            margin: 7px 0 0 0;
+                                        }
+                                    }
+
+                                    @include small() {
+                                        width: 100%;
+                                    }
                                 }
                             }
                         }
                     }
+
                 }
 
             }
@@ -1943,6 +2051,7 @@ main {
     &.slick-prev {
         transform: rotate(90deg);
         left: 0;
+        animation: pointleftdesk 1s infinite;
 
         @include small() {
             transform: translateY(calc(-50% - 90px)) rotate(90deg);
@@ -1953,6 +2062,7 @@ main {
     &.slick-next {
         transform: rotate(-90deg);
         right: 0;
+        animation: pointrightdesk 1s infinite;
 
         @include small() {
             transform: translateY(calc(-50% - 90px)) rotate(-90deg);

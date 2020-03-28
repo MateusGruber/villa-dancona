@@ -42,7 +42,8 @@ if($captcha){
 
         $mail->FromName = $_POST['name'];
 
-        $mail->addAddress('mateusfgruber@gmail.com', "Villa D'Ancona");
+        $mail->addAddress('mateus_gruber@hotmail.com.br', "Villa D'Ancona");
+        // $mail->addAddress('info@villadancona.com', "Villa D'Ancona");
 
         $mail->Subject = "[Villa D'Ancona] Contato";
 
