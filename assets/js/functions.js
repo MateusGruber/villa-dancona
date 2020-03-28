@@ -84,7 +84,7 @@ $(document).ready(function () {
 
         if (getToken) {
             $.ajax({
-                url: window.location.href + '/contato.php',
+                url: 'http://villadancona.com/contato.php',
                 method: "POST",
                 data: formdata + "&token=" + getToken,
                 dataType: "json",
@@ -113,7 +113,7 @@ $(document).ready(function () {
                     $.toast({
                         text: err.message,
                         heading: 'Erro ao enviar',
-                        icon: 'success',
+                        icon: 'error',
                         showHideTransition: 'fade',
                         allowToastClose: true,
                         hideAfter: 4000,
@@ -150,6 +150,9 @@ $(document).ready(function () {
     // Parallax
     var scene = document.getElementById('scene');
     var parallaxInstance = new Parallax(scene);
+    document.querySelector('.close').addEventListener('click', function(e) {
+        e.target.parentElement.setAttribute('style', 'display: none;')
+    })
 
     //Menu
     setMenuPosition();
