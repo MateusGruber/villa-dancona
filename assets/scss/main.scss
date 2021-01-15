@@ -368,6 +368,13 @@ main {
             left: 30px;
             z-index: 10;
 
+            &:first-child {
+                background-color: white;
+                padding: 5px 10px;
+                border-radius: 5px;
+            }
+
+
             &:last-child {
                 top: 50%;
                 left: auto;
@@ -402,8 +409,9 @@ main {
                 justify-content: space-between;
 
                 li {
-                    color: white;
-                    font-size: 0.8rem;
+                    color: $primary;
+                    font-size: 1rem;
+                    font-family: 'BommerSans', Arial, Helvetica, sans-serif;
 
                     &:not(:first-child) {
                         &::before {
@@ -990,6 +998,11 @@ main {
                     z-index: -1;
                     transition: ease-in-out 300ms;
 
+                    &.flora-name {
+                        max-width: 700px;
+                        margin: 0 auto;
+                    }
+
                     @include small() {
                         top: 0;
                         bottom: auto;
@@ -1038,26 +1051,6 @@ main {
                 padding: 5rem 15px;
             }
 
-            .fakeMarkee {
-                position: absolute;
-                white-space: nowrap;
-                will-change: transform;
-                animation: marquee 22s linear infinite;
-                margin-top: 80px;
-
-                @include small() {
-                    margin-top: 30px;
-                }
-
-                span {
-                    font-size: 1.1875rem;
-                    color: white;
-                    font-family: 'BommerSans', Arial, Helvetica, sans-serif;
-                    margin: 0px 10px 0;
-                    display: inline-block;
-                }
-            }
-
             .nostro-vino-content {
 
                 @include small() {
@@ -1091,6 +1084,8 @@ main {
                     p {
                         margin-left: -12.5rem;
                         margin-top: 5em;
+                        font-size: 1em;
+                        max-width: 23.4125rem;
 
                         @include small() {
                             margin-left: 0;
@@ -1629,6 +1624,10 @@ main {
         padding: 12px 0;
         max-height: 500px;
 
+        @include small() {
+            max-height: 270px;
+        }
+
         menu {
             li {
                 color: $gold;
@@ -1659,27 +1658,14 @@ main {
             div {
                 padding: 0 2px;
 
-                img {
-                    width: 100%;
+                @include small() {
+                    img {
+                        max-width: 370px;
 
-                    &.vertical-img {
-                        max-width: 315px;
-
-                        @include small() {
-                            width: auto;
-                            max-height: 231px;
+                        &.vertical-img {
+                            max-width: 164px;
                         }
                     }
-
-                    &.horizontal-img {
-                        max-width: 708px;
-
-                        @include small() {
-                            max-width: 347px;
-                        }
-                    }
-
-
                 }
             }
         }
@@ -1733,7 +1719,7 @@ main {
                     width: 60%;
                     padding: 10rem 0 9.375rem;
 
-                    
+
                     @include extraSmall() {
                         padding: 3rem 0;
                     }
@@ -2032,8 +2018,8 @@ main {
     text-indent: 9999px;
     width: 26px;
     height: 50px;
-    border: none;
-    background-image: url(../imgs/arrow.svg);
+    border: 2px solid $primary;
+    background-image: url(../imgs/arrow-blue.png);
     background-color: transparent;
     background-repeat: no-repeat;
     background-position: center;
@@ -2043,6 +2029,15 @@ main {
     z-index: 9;
     transition: ease-in-out 300ms;
     outline: none;
+    background-color: white;
+    height: 50px;
+    width: 50px;
+
+    svg {
+        path {
+            fill: $primary;
+        }
+    }
 
     @include small() {
         top: 50%;
@@ -2073,4 +2068,69 @@ main {
 
 .main-logo {
     opacity: 0;
+}
+
+
+.fakeMarkeeContainer {
+    background-color: white;
+    display: block;
+    width: 100%;
+    margin-top: -110px;
+    margin-bottom: 50px;
+    height: 40px;
+    padding: 10px;
+
+    .fakeMarkee {
+        position: absolute;
+        white-space: nowrap;
+        will-change: transform;
+        // animation: marquee 22s linear infinite;
+
+        @include small() {
+            margin-top: 30px;
+        }
+
+        span {
+            font-size: 1.1875rem;
+            color: $primary;
+            font-family: 'BommerSans', Arial, Helvetica, sans-serif;
+            margin: 0px 10px 0;
+            display: inline-block;
+        }
+    }
+}
+
+.progressBarContainer {
+    position: absolute;
+    bottom: 20%;
+    width: 300px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    div {
+        display: block;
+        width: 30%;
+        padding: 0;
+        cursor: pointer;
+        margin-right: 5%;
+        float: left;
+        color: white;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        span.progressBar {
+            width: 100%;
+            height: 4px;
+            background-color: rgba(255, 255, 255, 0.4);
+            display: block;
+
+            .inProgress {
+                background-color: rgba(255, 255, 255, 1);
+                width: 0%;
+                height: 4px;
+            }
+        }
+    }
 }
