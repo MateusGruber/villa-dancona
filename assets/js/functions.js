@@ -5,19 +5,101 @@ $(document).ready(function () {
     document.getElementById('greetings').innerText = greetingsMsg(greetings);
 
     //Sliders
-    var slider = tns({
-        container: '#slideshow',
-        items: 3,
-        slideBy: 'page',
-        mouseDrag: true,
-        controls: false,
-        nav: false,
-        autoWidth: true,
-        autoplayTimeout: 5000,
-        center: true,
+    $('#slideshow').slick({
+        dots: false,
+        autoplay: false,
+        infinite: true,
+        slidesToScroll: 2,
+        prevArrow: null,
+        nextArrow: null,
+        variableWidth: true,
+        centerPadding: '5px',
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    variableWidth: true,
+                    centerMode: true,
+                }
+            },
+        ]
+    })
+
+    //ticking machine
+    var percentTime;
+    var tick;
+    var time = 1;
+    var progressBarIndex = 0;
+
+    window.onresize = function (event) {
+        if (window.outerWidth >= 768) {
+            clearInterval(tick)
+        }
+    }
+
+
+    $('#wine-carousel').on('mouseenter', '.description', function (e) {
+        clearInterval(tick)
     });
 
-    $('#wine-carousel').on('afterChange init', function (event, slick, index) {
+    $('#wine-carousel').on('mouseleave', '.description', function (e) {
+        startProgressbar();
+    });
+
+    $('.progressBarContainer .progressBar').each(function (index) {
+        var progress = "<div class='inProgress inProgress" + index + "'></div>";
+        $(this).html(progress);
+    });
+
+    function startProgressbar() {
+        if (window.outerWidth > 768) {
+            resetProgressbar();
+            percentTime = 0;
+            tick = setInterval(interval, 10);
+        }
+    }
+
+    function interval() {
+        if (($('.slider .slick-track div[data-slick-index="' + progressBarIndex + '"]').attr("aria-hidden")) === "true") {
+            progressBarIndex = $('.slider .slick-track div[aria-hidden="false"]').data("slickIndex");
+            startProgressbar();
+        } else {
+            percentTime += 1 / (time + 5);
+            $('.inProgress' + progressBarIndex).css({
+                width: percentTime + "%"
+            });
+            if (percentTime >= 100) {
+                $('.single-item').slick('slickNext');
+                progressBarIndex++;
+                if (progressBarIndex > 2) {
+                    progressBarIndex = 0;
+                    $('.single-item').slick('slickGoTo', 0);
+                }
+                startProgressbar();
+            }
+        }
+    }
+
+    function resetProgressbar() {
+        $('.inProgress').css({
+            width: 0 + '%'
+        });
+        clearInterval(tick);
+    }
+    startProgressbar();
+    // End ticking machine
+
+    $('.progressBarContainer div').click(function () {
+        clearInterval(tick);
+        var goToThisIndex = $(this).find("span").data("slickIndex");
+        $('.single-item').slick('slickGoTo', goToThisIndex, false);
+        startProgressbar();
+    });
+
+
+    $('#wine-carousel .slider').on('afterChange init', function (event, slick, index) {
         // console.log('afterChange/init', event, slick, slick.$slides);
         // remove all prev/next
         slick.$slides.removeClass('prevSlide').removeClass('nextSlide');
@@ -36,7 +118,9 @@ $(document).ready(function () {
 
         if (index === 2) {
             $('.slick-next').css('opacity', '0');
+            $('.slick-prev').css('opacity', '1');
         } else if (!index || index === 0) {
+            $('.slick-next').css('opacity', '1');
             $('.slick-prev').css('opacity', '0');
         }
         else {
@@ -49,6 +133,8 @@ $(document).ready(function () {
         // remove all prev/next
         slick.$slides.removeClass('prevSlide').removeClass('nextSlide');
     }).slick({
+        dots: false,
+        autoplay: false,
         slidesToShow: 1,
         infinite: false,
         prevArrow: '<button type="button" class="slick-prev"></button>',
@@ -150,7 +236,7 @@ $(document).ready(function () {
     // Parallax
     var scene = document.getElementById('scene');
     var parallaxInstance = new Parallax(scene);
-    document.querySelector('.close').addEventListener('click', function(e) {
+    document.querySelector('.close').addEventListener('click', function (e) {
         e.target.parentElement.setAttribute('style', 'display: none;')
     })
 
